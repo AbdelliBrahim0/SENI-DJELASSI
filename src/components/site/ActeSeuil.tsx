@@ -22,7 +22,7 @@ export function ActeSeuil() {
         className="absolute inset-0"
         style={{
           background:
-            "linear-gradient(180deg, oklch(0.135 0.006 62) 0%, oklch(0.135 0.006 62 / 70%) 40%, oklch(0.135 0.006 62) 100%)",
+            "linear-gradient(180deg, var(--color-background) 0%, color-mix(in oklch, var(--color-background) 70%, transparent) 40%, var(--color-background) 100%)",
         }}
       />
 
@@ -74,7 +74,7 @@ export function ActeSeuil() {
               style={{
                 transform: `rotateY(${ouverte ? -78 : 0}deg)`,
                 background:
-                  "linear-gradient(115deg, oklch(0.3 0.02 62), oklch(0.19 0.012 62) 60%, oklch(0.15 0.008 62))",
+                  "linear-gradient(115deg, color-mix(in oklch, var(--color-card) 80%, var(--color-primary) 20%) 0%, var(--color-card) 60%, color-mix(in oklch, var(--color-card) 80%, var(--color-foreground) 20%) 100%)",
                 boxShadow: "var(--shadow-profond)",
               }}
             >

@@ -73,7 +73,7 @@ function FichePopup({
       {/* Panneau */}
       <div
         className="relative w-full max-w-lg animate-monter rounded-sm border border-border bg-card/95 p-7 shadow-2xl backdrop-blur-md"
-        style={{ boxShadow: `0 0 0 1px oklch(0.28 0.02 62), 0 40px 80px -20px oklch(0 0 0 / 0.9)` }}
+        style={{ boxShadow: `0 0 0 1px var(--color-border), 0 40px 80px -20px var(--shadow-profond)` }}
         onClick={(e) => e.stopPropagation()}
       >
         {/* Bouton fermer */}
@@ -196,9 +196,9 @@ export function ActeExplorateur() {
               className="absolute inset-[8%] rounded-full border border-border"
               style={{
                 background:
-                  "radial-gradient(circle at 38% 35%, oklch(0.22 0.014 62) 0%, oklch(0.14 0.007 62) 100%)",
+                  "radial-gradient(circle at 38% 35%, color-mix(in oklch, var(--color-card) 80%, var(--color-primary) 6%) 0%, var(--color-card) 100%)",
                 boxShadow:
-                  "0 0 0 1px oklch(0.28 0.02 62), inset 0 0 40px oklch(0.10 0.005 62 / 0.6)",
+                  "0 0 0 1px var(--color-border), inset 0 0 40px color-mix(in oklch, var(--color-foreground) 6%, transparent)",
               }}
             />
 
@@ -212,7 +212,7 @@ export function ActeExplorateur() {
             <div className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none z-10">
               <span
                 className="font-display text-[clamp(2rem,6vw,3.2rem)] font-black leading-none"
-                style={{ color: "oklch(0.72 0.132 42)" }}
+                style={{ color: "var(--color-primary)" }}
               >
                 {survole
                   ? String(METIERS.findIndex((m) => m.id === survole) + 1).padStart(2, "0")
@@ -276,20 +276,20 @@ export function ActeExplorateur() {
                         height: "clamp(72px, 15%, 96px)",
                         background: isHovered
                           ? `linear-gradient(135deg, ${couleur}33, ${couleur}11)`
-                          : "oklch(0.18 0.01 62 / 0.9)",
-                        borderColor: isHovered ? couleur : "oklch(0.30 0.015 62)",
+                          : "color-mix(in oklch, var(--color-card) 90%, var(--color-foreground) 10%)",
+                        borderColor: isHovered ? couleur : "var(--color-border)",
                         boxShadow: isHovered ? `0 0 20px ${couleur}66` : "none",
                         transform: isHovered ? "scale(1.2)" : "scale(1)",
                       }}
                     >
-                      <Icone
-                        style={{
-                          width: "52%",
-                          height: "52%",
-                          color: isHovered ? couleur : "oklch(0.68 0.05 62)",
-                          transition: "color 300ms",
-                        }}
-                      />
+                        <Icone
+                          style={{
+                            width: "52%",
+                            height: "52%",
+                            color: isHovered ? couleur : "color-mix(in oklch, var(--color-primary) 70%, var(--color-foreground) 30%)",
+                            transition: "color 300ms",
+                          }}
+                        />
                     </span>
 
                     {/* Légende */}
@@ -298,13 +298,12 @@ export function ActeExplorateur() {
                       style={{
                         fontSize: "clamp(11px, 2.4vw, 14px)",
                         fontWeight: 600,
-                        color: isHovered ? couleur : "oklch(0.72 0.018 72)",
+                        color: isHovered ? couleur : "var(--color-foreground)",
                         fontFamily: "var(--font-mono, monospace)",
                         letterSpacing: "0.06em",
                         textTransform: "uppercase",
                         whiteSpace: "nowrap",
                         transition: "color 300ms",
-                        textShadow: "0 1px 4px oklch(0 0 0 / 0.8)",
                       }}
                     >
                       {nomCourt}
@@ -320,8 +319,8 @@ export function ActeExplorateur() {
               className="absolute inset-0 w-full h-full pointer-events-none opacity-[0.18]"
               viewBox="0 0 100 100"
             >
-              <circle cx="50" cy="50" r="42" fill="none" stroke="oklch(0.72 0.132 42)" strokeWidth="0.3" strokeDasharray="2 4" />
-              <circle cx="50" cy="50" r="28" fill="none" stroke="oklch(0.72 0.132 42)" strokeWidth="0.2" strokeDasharray="1 6" />
+              <circle cx="50" cy="50" r="42" fill="none" stroke="var(--color-primary)" strokeWidth="0.3" strokeDasharray="2 4" />
+              <circle cx="50" cy="50" r="28" fill="none" stroke="var(--color-primary)" strokeWidth="0.2" strokeDasharray="1 6" />
             </svg>
 
             <p className="mono-plan pointer-events-none absolute -bottom-8 left-0 right-0 text-center text-[11px]">
