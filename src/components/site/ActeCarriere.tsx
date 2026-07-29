@@ -2,7 +2,8 @@ import { useEffect, useRef, useState } from "react";
 import { BoutonMagnetique } from "./BoutonMagnetique";
 import { IconeTelephone } from "./IconeTelephone";
 import { ENTREPRISE, SLOGANS } from "@/lib/entreprise";
-import { motion } from "motion/react";
+import { motion, type Variants } from "motion/react";
+import { Mail } from "lucide-react";
 import { SceneMateriaux } from "./SceneMateriaux";
 
 const titrePrincipal = "SENI\nDJELASSI";
@@ -28,7 +29,7 @@ const typeWriterChar = {
   },
 };
 
-const buttonVariants = {
+const buttonVariants: Variants = {
   hidden: { opacity: 0, y: 20 },
   visible: {
     opacity: 1,
@@ -141,6 +142,16 @@ export function ActeCarriere() {
                   <IconeTelephone /> {ENTREPRISE.telephone}
                 </BoutonMagnetique>
               </motion.div>
+              <motion.div
+                initial="hidden"
+                animate="visible"
+                variants={buttonVariants}
+                transition={{ delay: 2.9 }}
+              >
+                <BoutonMagnetique href={`mailto:${ENTREPRISE.email}`} variante="pierre">
+                  <Mail className="h-4 w-4" /> {ENTREPRISE.email}
+                </BoutonMagnetique>
+              </motion.div>
             </div>
           </div>
           </div>
@@ -200,6 +211,16 @@ export function ActeCarriere() {
                 >
                   <BoutonMagnetique href={ENTREPRISE.telephoneLien} variante="pierre">
                     <IconeTelephone /> {ENTREPRISE.telephone}
+                  </BoutonMagnetique>
+                </motion.div>
+                <motion.div
+                  initial="hidden"
+                  animate="visible"
+                  variants={buttonVariants}
+                  transition={{ delay: 2.9 }}
+                >
+                  <BoutonMagnetique href={`mailto:${ENTREPRISE.email}`} variante="pierre">
+                    <Mail className="h-4 w-4" /> {ENTREPRISE.email}
                   </BoutonMagnetique>
                 </motion.div>
               </div>
