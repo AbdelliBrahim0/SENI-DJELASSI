@@ -1,0 +1,2617 @@
+import { a as __toESM } from "../_runtime.mjs";
+import { a as Vector3, i as Box3, n as Canvas, r as useFrame, t as useGLTF } from "../_libs/@react-three/drei+[...].mjs";
+import { a as SLOGANS, i as REALISATIONS, n as GARANTIES, r as METIERS, t as ENTREPRISE } from "./entreprise-CaGT3ssy.mjs";
+import { c as require_react, s as require_jsx_runtime } from "../_libs/@radix-ui/react-accordion+[...].mjs";
+import { A as Droplets, B as ChefHat, C as Layers, D as Grid3x3, E as Hammer, H as CalendarCheck, K as ArrowRight, L as ChevronRight, M as CreditCard, O as FileText, P as Clock, R as ChevronLeft, W as BadgeCheck, _ as PaintbrushVertical, c as Star, d as ShieldCheck, h as Quote, i as UserCheck, k as ExternalLink, l as Sparkles, m as RefreshCcw, n as X, o as Timer, p as Ruler, r as Wrench, s as ThumbsUp, t as Zap, y as MessageCircle } from "../_libs/lucide-react.mjs";
+import { n as PiedDePage, t as Navbar } from "./PiedDePage-D92gajDM.mjs";
+import { t as useLenis } from "./use-lenis-DxbRzcjf.mjs";
+import { r as AnimatePresence } from "../_libs/framer-motion.mjs";
+import { t as motion } from "../_libs/motion.mjs";
+//#region node_modules/.nitro/vite/services/ssr/assets/routes-Dq53EU-0.js
+var import_react = /* @__PURE__ */ __toESM(require_react());
+var import_jsx_runtime = require_jsx_runtime();
+/** Curseur global : lumière radiale cuivre qui suit le pointeur avec inertie. */
+function CurseurLumiere() {
+	const halo = (0, import_react.useRef)(null);
+	const point = (0, import_react.useRef)(null);
+	(0, import_react.useEffect)(() => {
+		if (window.matchMedia("(pointer: coarse)").matches) return;
+		const cible = {
+			x: window.innerWidth / 2,
+			y: window.innerHeight / 2
+		};
+		const doux = { ...cible };
+		let raf = 0;
+		const bouge = (e) => {
+			cible.x = e.clientX;
+			cible.y = e.clientY;
+			if (point.current) point.current.style.transform = `translate3d(${e.clientX - 4}px, ${e.clientY - 4}px, 0)`;
+		};
+		const boucle = () => {
+			doux.x += (cible.x - doux.x) * .12;
+			doux.y += (cible.y - doux.y) * .12;
+			if (halo.current) halo.current.style.transform = `translate3d(${doux.x - 220}px, ${doux.y - 220}px, 0)`;
+			raf = requestAnimationFrame(boucle);
+		};
+		window.addEventListener("pointermove", bouge, { passive: true });
+		raf = requestAnimationFrame(boucle);
+		document.documentElement.style.cursor = "none";
+		return () => {
+			window.removeEventListener("pointermove", bouge);
+			cancelAnimationFrame(raf);
+			document.documentElement.style.cursor = "";
+		};
+	}, []);
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+		"aria-hidden": true,
+		className: "pointer-events-none fixed inset-0 z-[60] hidden md:block",
+		children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+			ref: halo,
+			className: "absolute left-0 top-0 h-[440px] w-[440px] rounded-full opacity-70 mix-blend-screen",
+			style: { background: "radial-gradient(circle, oklch(0.72 0.132 42 / 22%) 0%, oklch(0.72 0.132 42 / 8%) 35%, transparent 68%)" }
+		}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+			ref: point,
+			className: "absolute left-0 top-0 h-2 w-2 rounded-full bg-primary",
+			style: { boxShadow: "var(--lueur-cuivre)" }
+		})]
+	});
+}
+/** Couche de conversion permanente : fil à plomb + WhatsApp + téléphone. */
+function CoucheConversion() {
+	const [progression, setProgression] = (0, import_react.useState)(0);
+	(0, import_react.useEffect)(() => {
+		const maj = () => {
+			const h = document.documentElement.scrollHeight - window.innerHeight;
+			setProgression(h > 0 ? Math.min(1, window.scrollY / h) : 0);
+		};
+		maj();
+		window.addEventListener("scroll", maj, { passive: true });
+		window.addEventListener("resize", maj);
+		return () => {
+			window.removeEventListener("scroll", maj);
+			window.removeEventListener("resize", maj);
+		};
+	}, []);
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(import_jsx_runtime.Fragment, { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("a", {
+		href: "#devis",
+		"aria-label": "Devis gratuit — progression de la visite",
+		className: "fixed left-6 top-0 z-50 hidden h-screen w-10 flex-col items-center lg:flex",
+		children: [
+			/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { className: "mt-0 h-[calc(100vh-120px)] w-px bg-border" }),
+			/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", {
+				className: "absolute left-1/2 -translate-x-1/2 transition-[top] duration-300 ease-out",
+				style: { top: `calc(${progression * 84}vh + 24px)` },
+				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+					className: "block h-3 w-3 rotate-45 bg-secondary",
+					style: { boxShadow: "var(--lueur-cuivre)" }
+				}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { className: "mt-2 block h-6 w-[10px] -translate-x-[3.5px] rounded-b-full bg-gradient-to-b from-secondary to-accent" })]
+			}),
+			/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", {
+				className: "mono-plan absolute bottom-6 left-1/2 -translate-x-1/2 rotate-180 [writing-mode:vertical-rl] transition-colors hover:!text-primary",
+				children: [
+					"Devis gratuit · ",
+					String(Math.round(progression * 100)).padStart(3, "0"),
+					"%"
+				]
+			})
+		]
+	}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("a", {
+		href: ENTREPRISE.whatsapp,
+		target: "_blank",
+		rel: "noopener noreferrer",
+		"aria-label": "Discuter sur WhatsApp",
+		className: "animate-pulse-cuivre fixed bottom-20 right-4 z-50 flex h-14 w-14 items-center justify-center rounded-full bg-primary text-primary-foreground transition-transform duration-500 [transition-timing-function:var(--ressort)] hover:scale-110 md:bottom-6 md:right-6",
+		children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("svg", {
+			viewBox: "0 0 24 24",
+			className: "h-7 w-7 fill-current",
+			"aria-hidden": true,
+			children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("path", { d: "M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91C21.96 6.45 17.5 2 12.04 2Zm5.8 14.03c-.25.69-1.46 1.35-2 1.4-.53.05-1.03.24-3.47-.72-2.92-1.15-4.77-4.13-4.91-4.32-.14-.19-1.17-1.55-1.17-2.96 0-1.41.74-2.1 1-2.39.26-.29.57-.36.76-.36h.55c.18 0 .42-.07.65.5.25.6.84 2.07.91 2.22.07.14.12.31.02.5-.09.19-.14.31-.28.48-.14.17-.3.37-.42.5-.14.14-.29.29-.12.57.16.29.73 1.2 1.56 1.94 1.07.95 1.98 1.25 2.26 1.39.28.14.44.12.6-.07.17-.19.7-.81.88-1.09.19-.29.37-.24.63-.14.25.09 1.72.81 2.01.96.29.14.48.21.55.33.07.12.07.69-.18 1.36Z" })
+		})
+	})] });
+}
+var LIENS = [
+	{
+		nom: "Facebook",
+		url: "https://www.facebook.com",
+		couleur: "#1877F2",
+		src: "/assets/facebook-DRCBpRrT.png"
+	},
+	{
+		nom: "Instagram",
+		url: "https://www.instagram.com",
+		couleur: "#E4405F",
+		src: "/assets/instagram-CN1RHPWu.png"
+	},
+	{
+		nom: "TikTok",
+		url: "https://www.tiktok.com",
+		couleur: "#000000",
+		src: "/assets/tiktok-DUJKB6mR.jpg"
+	},
+	{
+		nom: "Email",
+		url: `mailto:${ENTREPRISE.email}`,
+		couleur: "oklch(0.72 0.132 42)",
+		src: "/assets/gmail-BTtHKvoP.png"
+	}
+];
+function LiensSociauxFlottants() {
+	const refHero = (0, import_react.useRef)(null);
+	const refFondation = (0, import_react.useRef)(null);
+	const [scrollY, setScrollY] = (0, import_react.useState)(0);
+	const [vh, setVh] = (0, import_react.useState)(0);
+	(0, import_react.useEffect)(() => {
+		refHero.current = document.getElementById("carriere");
+		refFondation.current = document.getElementById("manifeste");
+		const maj = () => {
+			setScrollY(window.scrollY);
+			setVh(window.innerHeight);
+		};
+		maj();
+		window.addEventListener("scroll", maj, { passive: true });
+		window.addEventListener("resize", maj);
+		return () => window.removeEventListener("scroll", maj);
+	}, []);
+	const hauteurHero = refHero.current?.getBoundingClientRect().height ?? vh;
+	const debut = Math.max(0, hauteurHero - vh * .5);
+	const progressionApparition = Math.min(1, Math.max(0, (scrollY - debut) / (vh * .15)));
+	const debutDisparition = refFondation.current ? refFondation.current.getBoundingClientRect().top + scrollY : debut + vh;
+	const progressionDisparition = Math.min(1, Math.max(0, (scrollY - debutDisparition) / (vh * .2)));
+	const visible = progressionApparition > 0 && progressionDisparition < 1;
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+		className: "fixed inset-0 z-40 flex items-center justify-center pointer-events-none",
+		style: {
+			opacity: visible ? 1 : 0,
+			transition: "opacity 0.4s ease",
+			visibility: visible ? "visible" : "hidden"
+		},
+		children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+			className: "flex flex-wrap items-center justify-center gap-4 md:gap-8 pointer-events-auto",
+			children: LIENS.map((lien, i) => {
+				const retard = i * .025;
+				const apparu = Math.min(1, Math.max(0, (progressionApparition - retard) / (1 - retard)));
+				const opacite = apparu * (1 - Math.min(1, Math.max(0, progressionDisparition * 2 - i * .15)));
+				return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("a", {
+					href: lien.url,
+					target: lien.nom !== "Email" ? "_blank" : void 0,
+					rel: lien.nom !== "Email" ? "noopener noreferrer" : void 0,
+					"aria-label": lien.nom,
+					className: "group relative flex flex-col items-center",
+					style: {
+						opacity: opacite,
+						transform: `translateY(${(1 - apparu) * 30}px) scale(${.5 + apparu * .5})`,
+						transition: "opacity 0.3s ease, transform 0.4s cubic-bezier(0.16, 1, 0.3, 1)"
+					},
+					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+						className: "flex h-16 w-16 items-center justify-center rounded-full border border-white/15 bg-white/5 backdrop-blur-md transition-all duration-500 hover:scale-110 hover:border-white/30 md:h-20 md:w-20 overflow-hidden",
+						onMouseEnter: (e) => {
+							e.currentTarget.style.boxShadow = `0 0 30px ${lien.couleur}40, 0 0 60px ${lien.couleur}20`;
+							e.currentTarget.style.borderColor = `${lien.couleur}40`;
+						},
+						onMouseLeave: (e) => {
+							e.currentTarget.style.boxShadow = "none";
+							e.currentTarget.style.borderColor = "oklch(1 0 0 / 0.15)";
+						},
+						children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("img", {
+							src: lien.src,
+							alt: lien.nom,
+							className: "h-7 w-7 md:h-9 md:w-9 object-contain"
+						})
+					}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+						className: "mono-plan mt-2.5 text-[0.55rem] text-white/40 transition-all duration-300 group-hover:text-white/80 md:text-[0.6rem]",
+						style: {
+							opacity: Math.min(1, opacite * 2),
+							transform: `translateY(${(1 - Math.min(1, opacite * 2)) * 6}px)`,
+							transition: "opacity 0.3s ease, transform 0.3s ease"
+						},
+						children: lien.nom
+					})]
+				}, lien.nom);
+			})
+		})
+	});
+}
+/** Bouton magnétique : attire le curseur, compression au clic, rebond ressort. */
+function BoutonMagnetique({ href, children, variante = "cuivre", className = "", onClick }) {
+	const ref = (0, import_react.useRef)(null);
+	const suivre = (e) => {
+		const el = ref.current;
+		if (!el) return;
+		const r = el.getBoundingClientRect();
+		const dx = (e.clientX - (r.left + r.width / 2)) / r.width * 22;
+		const dy = (e.clientY - (r.top + r.height / 2)) / r.height * 22;
+		el.style.transform = `translate3d(${Math.max(-11, Math.min(11, dx))}px, ${Math.max(-11, Math.min(11, dy))}px, 0)`;
+	};
+	const relacher = () => {
+		const el = ref.current;
+		if (el) el.style.transform = "translate3d(0,0,0)";
+	};
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("a", {
+		ref,
+		href,
+		onClick,
+		onPointerMove: suivre,
+		onPointerLeave: relacher,
+		onPointerDown: () => {
+			if (ref.current) ref.current.style.scale = "0.94";
+		},
+		onPointerUp: () => {
+			if (ref.current) ref.current.style.scale = "1";
+		},
+		className: `mono-plan inline-flex items-center justify-center gap-2 rounded-full px-7 py-4 !text-[0.72rem] font-semibold transition-[transform,scale,filter,border-color] duration-500 [transition-timing-function:var(--ressort)] ${variante === "cuivre" ? "bg-primary text-primary-foreground hover:brightness-110" : "border border-border bg-card/60 text-foreground backdrop-blur hover:border-primary/60"} ${className}`,
+		style: { boxShadow: variante === "cuivre" ? "var(--lueur-cuivre)" : void 0 },
+		children
+	});
+}
+function IconeTelephone({ className = "h-4 w-4" }) {
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("svg", {
+		viewBox: "0 0 24 24",
+		className: `${className} fill-current`,
+		"aria-hidden": true,
+		children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("path", { d: "M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.2.4 2.4.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.4c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.4 0 .8-.2 1l-2.2 2.2Z" })
+	});
+}
+var FICHIERS = [
+	"Cinder Block by Quaternius - lLkVKoJsKm",
+	"Gardening Trowel by involuntary tsetse - 3Jrn0djxEEF",
+	"Ladder by CreativeTrio - p1RR8Ls9EH",
+	"Paint Bucket by Don Carson - wOomnJNisB",
+	"Paint roller by Poly by Google - eeYDEQ1jJi5",
+	"Shovel by Quaternius - NrMejTU6kz",
+	"the wall hammer by Arnd Mnd - 42OZv60U293",
+	"Wheelbarrow by Poly by Google - 6XpEkgDXwkU",
+	"Paint Brush Large by reyshapes - Ha1JYRVRRX"
+];
+var URLS = FICHIERS.map((f) => `/3DMaterials/${f}.glb`);
+var FACTEURS = {
+	"Cinder Block by Quaternius - lLkVKoJsKm": .7,
+	"Gardening Trowel by involuntary tsetse - 3Jrn0djxEEF": .9,
+	"Ladder by CreativeTrio - p1RR8Ls9EH": 1.3,
+	"Paint Bucket by Don Carson - wOomnJNisB": .6,
+	"Paint roller by Poly by Google - eeYDEQ1jJi5": .9,
+	"Shovel by Quaternius - NrMejTU6kz": 1,
+	"the wall hammer by Arnd Mnd - 42OZv60U293": .95,
+	"Wheelbarrow by Poly by Google - 6XpEkgDXwkU": 1.1,
+	"Paint Brush Large by reyshapes - Ha1JYRVRRX": .9
+};
+function Modele({ url, facteur, position, flottant, rotationInitiale, animation }) {
+	const ref = (0, import_react.useRef)(null);
+	const { scene } = useGLTF(url);
+	const clone = (0, import_react.useMemo)(() => {
+		const c = scene.clone();
+		const taille = new Box3().setFromObject(c).getSize(new Vector3());
+		const maxDim = Math.max(taille.x, taille.y, taille.z);
+		c.scale.setScalar(1.5 / maxDim * facteur);
+		c.traverse((n) => {
+			if (n.isMesh) {
+				const m = n;
+				m.castShadow = true;
+				m.receiveShadow = true;
+			}
+		});
+		return c;
+	}, [scene]);
+	const random = (0, import_react.useMemo)(() => ({
+		ry: .04 + Math.random() * .06,
+		rx: .002 + Math.random() * .003,
+		rz: .002 + Math.random() * .002
+	}), []);
+	const tempsRef = (0, import_react.useMemo)(() => ({ temps: 0 }), []);
+	const flottantParams = (0, import_react.useMemo)(() => ({
+		decalage: Math.random() * Math.PI * 2,
+		freqY: .2 + Math.random() * .3,
+		freqZ: .12 + Math.random() * .2,
+		amplY: .06 + Math.random() * .06,
+		amplZ: .02 + Math.random() * .03
+	}), []);
+	useFrame(() => {
+		if (!ref.current) return;
+		if (animation === "frapper") {
+			tempsRef.temps += .016;
+			const t = tempsRef.temps;
+			ref.current.rotation.x = (rotationInitiale?.[0] ?? 0) + Math.sin(t * .3) * .6;
+		} else if (flottant) {
+			tempsRef.temps += .016;
+			const t = tempsRef.temps + flottantParams.decalage;
+			ref.current.position.y = position[1] + Math.sin(t * flottantParams.freqY) * flottantParams.amplY;
+			ref.current.rotation.z = (rotationInitiale?.[2] ?? 0) + Math.sin(t * flottantParams.freqZ) * flottantParams.amplZ;
+		} else {
+			ref.current.rotation.y += .005 * random.ry;
+			ref.current.rotation.x += .005 * random.rx;
+			ref.current.rotation.z += .005 * random.rz;
+		}
+	});
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("group", {
+		ref,
+		position,
+		rotation: rotationInitiale,
+		children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("primitive", { object: clone })
+	});
+}
+function Scene({ disposition }) {
+	const positions = (0, import_react.useMemo)(() => {
+		const n = FICHIERS.length;
+		if (disposition === "gauche") return Array.from({ length: n }, (_, i) => {
+			const angle = i / n * Math.PI * 2;
+			return [
+				Math.cos(angle) * 1.4,
+				Math.sin(angle) * 3.6 + .4,
+				0
+			];
+		});
+		if (disposition === "brouette") return Array.from({ length: n }, (_, i) => i === 7 ? [
+			.6,
+			1.4,
+			0
+		] : i === 5 ? [
+			.7,
+			-.1,
+			0
+		] : i === 8 ? [
+			-.7,
+			-1.3,
+			0
+		] : i === 3 ? [
+			0,
+			-2.2,
+			0
+		] : i === 4 ? [
+			.7,
+			-1.3,
+			0
+		] : i === 6 ? [
+			-.1,
+			-.6,
+			0
+		] : [
+			0,
+			0,
+			0
+		]);
+		return [
+			[
+				-1.2,
+				1.8,
+				0
+			],
+			[
+				1.2,
+				1.8,
+				0
+			],
+			[
+				0,
+				.5,
+				0
+			],
+			[
+				-1.2,
+				.5,
+				0
+			],
+			[
+				1.2,
+				.5,
+				0
+			],
+			[
+				-1.2,
+				-.7,
+				0
+			],
+			[
+				0,
+				-.7,
+				0
+			],
+			[
+				0,
+				2.8,
+				0
+			],
+			[
+				-2,
+				-.8,
+				0
+			]
+		];
+	}, [disposition]);
+	const indices = disposition === "brouette" ? [
+		7,
+		5,
+		8,
+		3,
+		4,
+		6
+	] : FICHIERS.map((_, i) => i);
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(import_jsx_runtime.Fragment, { children: [
+		/* @__PURE__ */ (0, import_jsx_runtime.jsx)("ambientLight", { intensity: .5 }),
+		/* @__PURE__ */ (0, import_jsx_runtime.jsx)("pointLight", {
+			position: [
+				2,
+				3,
+				4
+			],
+			intensity: 30,
+			color: "#E8815A",
+			distance: 14,
+			decay: 2
+		}),
+		/* @__PURE__ */ (0, import_jsx_runtime.jsx)("directionalLight", {
+			position: [
+				-4,
+				2,
+				3
+			],
+			intensity: .6,
+			color: "#B8A369"
+		}),
+		indices.map((i) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Modele, {
+			url: URLS[i],
+			facteur: FACTEURS[FICHIERS[i]] * (disposition === "brouette" ? i === 3 ? 1 : i === 6 ? .45 : .55 : 1),
+			position: positions[i],
+			flottant: disposition === "brouette" || i >= 7,
+			rotationInitiale: i === 7 ? [
+				0,
+				1.1,
+				0
+			] : i === 8 ? [
+				.6,
+				1.2,
+				0
+			] : i === 4 ? [
+				0,
+				0,
+				-.3
+			] : [
+				0,
+				0,
+				0
+			],
+			animation: i === 6 ? "frapper" : void 0
+		}, FICHIERS[i]))
+	] });
+}
+function SceneMateriaux({ disposition = "gauche" }) {
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Canvas, {
+		dpr: [1, 1.5],
+		gl: {
+			antialias: true,
+			alpha: true
+		},
+		camera: disposition === "gauche" ? {
+			position: [
+				0,
+				0,
+				12
+			],
+			fov: 35
+		} : {
+			position: [
+				0,
+				0,
+				8
+			],
+			fov: 35
+		},
+		style: {
+			pointerEvents: "none",
+			width: "100%",
+			height: "100%"
+		},
+		children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(import_react.Suspense, {
+			fallback: null,
+			children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Scene, { disposition })
+		})
+	});
+}
+var titrePrincipal = "SENI\nDJELASSI";
+var texteTypewriter = `${ENTREPRISE.baseline}. ${SLOGANS.principal}`;
+var typeWriterContainer = {
+	hidden: { opacity: 1 },
+	visible: {
+		opacity: 1,
+		transition: {
+			staggerChildren: .02,
+			delayChildren: .3
+		}
+	}
+};
+var typeWriterChar = {
+	hidden: {
+		opacity: 0,
+		display: "none"
+	},
+	visible: {
+		opacity: 1,
+		display: "inline-block",
+		transition: { duration: .01 }
+	}
+};
+var buttonVariants = {
+	hidden: {
+		opacity: 0,
+		y: 20
+	},
+	visible: {
+		opacity: 1,
+		y: 0,
+		transition: {
+			duration: .6,
+			ease: "easeOut"
+		}
+	}
+};
+function ActeCarriere() {
+	const section = (0, import_react.useRef)(null);
+	const [p, setP] = (0, import_react.useState)(0);
+	(0, import_react.useEffect)(() => {
+		const maj = () => {
+			if (!section.current) return;
+			const v = Math.min(1, Math.max(0, window.scrollY / window.innerHeight));
+			setP(v);
+		};
+		maj();
+		window.addEventListener("scroll", maj, { passive: true });
+		return () => window.removeEventListener("scroll", maj);
+	}, []);
+	const zoneInfo = /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+		className: "flex flex-wrap items-end justify-between gap-4 border-t border-border pt-6",
+		children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+			className: "mono-plan max-w-md !text-foreground/80 text-xs",
+			children: "Zone d'intervention : Marseille · Toulon · Nice et alentours — 13 · 83 · 06"
+		}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+			className: "mono-plan animate-pulse text-xs",
+			children: "↓ Faites défiler"
+		})]
+	});
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("section", {
+		ref: section,
+		id: "carriere",
+		className: "relative",
+		"aria-label": "Accueil",
+		children: [
+			/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+				className: "pointer-events-none absolute inset-0 z-0",
+				style: {
+					opacity: Math.max(0, 1 - p * 1.6),
+					visibility: p > .98 ? "hidden" : "visible",
+					background: "radial-gradient(60% 50% at 50% 45%, oklch(0.28 0.02 55) 0%, oklch(0.135 0.006 62) 70%)"
+				}
+			}),
+			/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+				className: "relative z-10 flex flex-col min-h-[100dvh]",
+				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+					className: "flex md:hidden relative overflow-hidden min-h-[100dvh] px-5 pt-24 pb-0",
+					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+						className: "absolute inset-0 pointer-events-none z-0",
+						children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(SceneMateriaux, { disposition: "brouette" })
+					}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+						className: "relative z-10 flex-1",
+						children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+							className: "max-w-2xl",
+							children: [
+								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+									className: "flex items-start",
+									children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("h1", {
+										className: "texte-grave text-[clamp(4.8rem,19vw,17rem)] font-black leading-[0.85] tracking-tight",
+										children: titrePrincipal.split("\n").map((ligne, idxLigne) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+											className: "block overflow-hidden pb-2",
+											children: ligne
+										}, idxLigne))
+									})
+								}),
+								/* @__PURE__ */ (0, import_jsx_runtime.jsxs)(motion.p, {
+									className: "mt-6 max-w-xl text-xl text-muted-foreground md:text-3xl",
+									variants: typeWriterContainer,
+									initial: "hidden",
+									animate: "visible",
+									children: [texteTypewriter.split("").map((char, index) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)(motion.span, {
+										variants: typeWriterChar,
+										className: index < ENTREPRISE.baseline.length + 1 ? "text-marbre" : "",
+										children: char === " " ? "\xA0" : char
+									}, index)), /* @__PURE__ */ (0, import_jsx_runtime.jsx)(motion.span, {
+										initial: { opacity: 0 },
+										animate: { opacity: [1, 0] },
+										transition: {
+											repeat: Infinity,
+											duration: .8,
+											delay: .3 + texteTypewriter.length * .02
+										},
+										className: "inline-block w-[2px] h-[1em] bg-primary align-middle ml-1"
+									})]
+								}),
+								/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+									className: "mt-12 flex flex-wrap items-center gap-4",
+									children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(motion.div, {
+										initial: "hidden",
+										animate: "visible",
+										variants: buttonVariants,
+										transition: { delay: 2.3 },
+										children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(BoutonMagnetique, {
+											href: "#devis",
+											children: "Devis gratuit"
+										})
+									}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)(motion.div, {
+										initial: "hidden",
+										animate: "visible",
+										variants: buttonVariants,
+										transition: { delay: 2.6 },
+										children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(BoutonMagnetique, {
+											href: ENTREPRISE.telephoneLien,
+											variante: "pierre",
+											children: [
+												/* @__PURE__ */ (0, import_jsx_runtime.jsx)(IconeTelephone, {}),
+												" ",
+												ENTREPRISE.telephone
+											]
+										})
+									})]
+								})
+							]
+						})
+					})]
+				}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+					className: "hidden md:flex flex-col px-14 pt-28 pb-10 min-h-[100dvh]",
+					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+						className: "flex flex-1 items-center gap-12 lg:gap-20",
+						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+							className: "flex-1 max-w-2xl",
+							children: [
+								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h1", {
+									className: "texte-grave text-[clamp(4.8rem,14vw,14rem)] font-black leading-[0.9] tracking-tight",
+									children: titrePrincipal.split("\n").map((ligne, idxLigne) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+										className: "block overflow-hidden pb-2",
+										children: ligne
+									}, idxLigne))
+								}),
+								/* @__PURE__ */ (0, import_jsx_runtime.jsxs)(motion.p, {
+									className: "mt-6 max-w-2xl text-xl text-muted-foreground md:text-2xl",
+									variants: typeWriterContainer,
+									initial: "hidden",
+									animate: "visible",
+									children: [texteTypewriter.split("").map((char, index) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)(motion.span, {
+										variants: typeWriterChar,
+										className: index < ENTREPRISE.baseline.length + 1 ? "text-marbre" : "",
+										children: char === " " ? "\xA0" : char
+									}, index)), /* @__PURE__ */ (0, import_jsx_runtime.jsx)(motion.span, {
+										initial: { opacity: 0 },
+										animate: { opacity: [1, 0] },
+										transition: {
+											repeat: Infinity,
+											duration: .8,
+											delay: .3 + texteTypewriter.length * .02
+										},
+										className: "inline-block w-[2px] h-[1em] bg-primary align-middle ml-1"
+									})]
+								}),
+								/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+									className: "mt-12 flex flex-wrap items-center gap-4",
+									children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(motion.div, {
+										initial: "hidden",
+										animate: "visible",
+										variants: buttonVariants,
+										transition: { delay: 2.3 },
+										children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(BoutonMagnetique, {
+											href: "#devis",
+											children: "Devis gratuit"
+										})
+									}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)(motion.div, {
+										initial: "hidden",
+										animate: "visible",
+										variants: buttonVariants,
+										transition: { delay: 2.6 },
+										children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(BoutonMagnetique, {
+											href: ENTREPRISE.telephoneLien,
+											variante: "pierre",
+											children: [
+												/* @__PURE__ */ (0, import_jsx_runtime.jsx)(IconeTelephone, {}),
+												" ",
+												ENTREPRISE.telephone
+											]
+										})
+									})]
+								})
+							]
+						}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)(motion.div, {
+							initial: {
+								opacity: 0,
+								scale: .9
+							},
+							animate: {
+								opacity: 1,
+								scale: 1
+							},
+							transition: {
+								duration: 1,
+								delay: 1.5
+							},
+							className: "hidden lg:block relative w-[500px] h-[600px] shrink-0",
+							children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+								className: "absolute inset-0 pointer-events-none z-0",
+								children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(SceneMateriaux, { disposition: "gauche" })
+							})
+						})]
+					}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)(motion.div, {
+						initial: { opacity: 0 },
+						animate: { opacity: 1 },
+						transition: {
+							duration: .8,
+							delay: 3.3
+						},
+						children: zoneInfo
+					})]
+				})]
+			}),
+			/* @__PURE__ */ (0, import_jsx_runtime.jsx)(motion.div, {
+				initial: { opacity: 0 },
+				animate: { opacity: 1 },
+				transition: {
+					duration: .8,
+					delay: 3.3
+				},
+				className: "block md:hidden px-5 pb-16 pt-6",
+				children: zoneInfo
+			})
+		]
+	});
+}
+/** ACTE 1 — La Fondation. Le béton coule, les slogans se gravent. */
+function ActeFondation() {
+	const ref = (0, import_react.useRef)(null);
+	const [p, setP] = (0, import_react.useState)(0);
+	(0, import_react.useEffect)(() => {
+		const maj = () => {
+			const el = ref.current;
+			if (!el) return;
+			const r = el.getBoundingClientRect();
+			const total = r.height - window.innerHeight;
+			setP(Math.min(1, Math.max(0, -r.top / Math.max(1, total))));
+		};
+		maj();
+		window.addEventListener("scroll", maj, { passive: true });
+		window.addEventListener("resize", maj);
+		return () => {
+			window.removeEventListener("scroll", maj);
+			window.removeEventListener("resize", maj);
+		};
+	}, []);
+	const etape1 = Math.min(1, p / .25);
+	const etape2 = Math.min(1, Math.max(0, (p - .25) / .25));
+	const etape3 = Math.min(1, Math.max(0, (p - .45) / .35));
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("section", {
+		ref,
+		id: "manifeste",
+		className: "relative h-[200svh] bg-background",
+		"aria-label": "Notre manifeste",
+		children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+			className: "sticky top-0 flex h-[100svh] flex-col justify-center overflow-hidden px-5 md:px-14",
+			children: [
+				/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+					"aria-hidden": true,
+					className: "pointer-events-none absolute inset-x-0 bottom-0",
+					style: {
+						height: `${20 + p * 90}%`,
+						background: "linear-gradient(180deg, oklch(0.24 0.012 62) 0%, oklch(0.17 0.008 62) 45%, oklch(0.13 0.006 62) 100%)",
+						filter: "blur(0.2px)",
+						transition: "height 120ms linear"
+					}
+				}),
+				/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+					"aria-hidden": true,
+					className: "pointer-events-none absolute inset-0 opacity-[0.35] mix-blend-overlay",
+					style: { backgroundImage: "repeating-linear-gradient(115deg, oklch(0.98 0.01 85 / 3%) 0 2px, transparent 2px 7px)" }
+				}),
+				/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+					className: "relative z-10 mx-auto w-full max-w-6xl",
+					children: [
+						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h2", {
+							className: "texte-grave mt-8 max-w-4xl text-[clamp(2.2rem,6.4vw,5.4rem)] font-black leading-[0.95]",
+							style: {
+								opacity: etape1,
+								transform: `translateY(${(1 - etape1) * 40}px)`
+							},
+							children: SLOGANS.expertise
+						}),
+						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h3", {
+							className: "texte-grave mt-10 max-w-4xl text-[clamp(1.6rem,4.2vw,3.4rem)] font-black leading-[0.95] !text-marbre/80",
+							style: {
+								opacity: etape2,
+								transform: `translateY(${(1 - etape2) * 40}px)`
+							},
+							children: SLOGANS.satisfaction
+						}),
+						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("ul", {
+							className: "mt-14 grid gap-px overflow-hidden rounded-sm border border-border bg-border sm:grid-cols-2 lg:grid-cols-5",
+							style: {
+								opacity: Math.min(1, etape3 * 4),
+								transition: "opacity 200ms linear"
+							},
+							children: GARANTIES.map((g, i) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("li", {
+								className: "group relative bg-card/80 p-5 transition-colors duration-500 hover:bg-card",
+								style: {
+									opacity: Math.min(1, Math.max(0, etape3 * 5 - i * .7)),
+									transform: `translateY(${(1 - Math.min(1, Math.max(0, etape3 * 5 - i * .7))) * 20}px)`,
+									transition: "opacity 300ms linear, transform 300ms var(--ressort)"
+								},
+								children: [
+									/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+										className: "mono-plan block !text-primary",
+										children: g.code
+									}),
+									/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+										className: "mt-3 block font-display text-2xl uppercase leading-none text-marbre",
+										children: g.titre
+									}),
+									/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+										className: "mt-2 block text-sm text-muted-foreground",
+										children: g.detail
+									}),
+									/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+										"aria-hidden": true,
+										className: "pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-500 group-hover:opacity-100",
+										style: { background: "linear-gradient(140deg, oklch(0.72 0.132 42 / 14%), transparent 60%)" }
+									})
+								]
+							}, g.code))
+						})
+					]
+				})
+			]
+		})
+	});
+}
+var AVANTAGES = [
+	{
+		icone: UserCheck,
+		titre: "Interlocuteur unique",
+		desc: "Un seul contact du devis à la livraison. Vous ne serez jamais baladé entre plusieurs services.",
+		stat: "100%",
+		label: "de nos clients recommande"
+	},
+	{
+		icone: Clock,
+		titre: "Réactivité express",
+		desc: "Devis sous 48h, intervention rapide, dépannage d'urgence disponible 6j/7.",
+		stat: "< 48h",
+		label: "devis gratuit"
+	},
+	{
+		icone: ShieldCheck,
+		titre: "Garantie décennale",
+		desc: "Assurance décennale et RC Pro à jour. Chaque chantier est couvert pour votre tranquillité.",
+		stat: "10 ans",
+		label: "de garantie"
+	},
+	{
+		icone: Ruler,
+		titre: "Savoir-faire tous corps d'état",
+		desc: "9 métiers complémentaires, une coordination parfaite. Pas de sous-traitance hasardeuse.",
+		stat: "9",
+		label: "métiers en interne"
+	},
+	{
+		icone: MessageCircle,
+		titre: "Transparence totale",
+		desc: "Suivi de chantier dématérialisé, photos, planning actualisé. Vous savez tout, en temps réel.",
+		stat: "100%",
+		label: "transparence"
+	},
+	{
+		icone: Sparkles,
+		titre: "Finition soignée",
+		desc: "Protection des sols, aspiration centralisée, respect des lieux. Zéro poussière, zéro trace.",
+		stat: "5.0",
+		label: "note de propreté"
+	}
+];
+function PourquoiNous() {
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("section", {
+		ref: (0, import_react.useRef)(null),
+		className: "relative overflow-hidden border-t border-border px-5 py-24 md:px-14 md:py-32",
+		children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+			className: "absolute inset-0 pointer-events-none",
+			style: { background: "radial-gradient(ellipse 60% 40% at 50% 30%, oklch(0.72 0.132 42 / 0.04), transparent 70%)" }
+		}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+			className: "mx-auto max-w-6xl",
+			children: [
+				/* @__PURE__ */ (0, import_jsx_runtime.jsx)(motion.span, {
+					initial: {
+						opacity: 0,
+						y: 10
+					},
+					whileInView: {
+						opacity: 1,
+						y: 0
+					},
+					viewport: { once: true },
+					className: "mono-plan !text-primary",
+					children: "Pourquoi nous choisir"
+				}),
+				/* @__PURE__ */ (0, import_jsx_runtime.jsxs)(motion.h2, {
+					initial: {
+						opacity: 0,
+						y: 20
+					},
+					whileInView: {
+						opacity: 1,
+						y: 0
+					},
+					viewport: { once: true },
+					transition: {
+						delay: .1,
+						duration: .6
+					},
+					className: "texte-grave mt-2 text-[clamp(2.4rem,6vw,5rem)] font-black",
+					children: [
+						"La différence ",
+						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("br", { className: "hidden sm:block" }),
+						"SENI DJELASSI"
+					]
+				}),
+				/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+					className: "mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3",
+					children: AVANTAGES.map((av, i) => {
+						const Icone = av.icone;
+						return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(motion.div, {
+							initial: {
+								opacity: 0,
+								y: 40
+							},
+							whileInView: {
+								opacity: 1,
+								y: 0
+							},
+							viewport: {
+								once: true,
+								margin: "-50px"
+							},
+							transition: {
+								delay: i * .1,
+								duration: .5
+							},
+							className: "group relative overflow-hidden rounded-sm border border-border bg-card/40 p-6 transition-all duration-500 hover:border-primary/30",
+							children: [
+								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "absolute -right-10 -top-10 h-24 w-24 rounded-full bg-primary/5 blur-3xl transition-all duration-700 group-hover:scale-[2] group-hover:bg-primary/10" }),
+								/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+									className: "relative flex items-start gap-4",
+									children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+										className: "flex h-12 w-12 shrink-0 items-center justify-center rounded-full border border-primary/20 bg-primary/5 transition-all duration-500 group-hover:border-primary/40 group-hover:bg-primary/10",
+										children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Icone, { className: "h-5 w-5 text-primary" })
+									}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+										className: "flex-1",
+										children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h3", {
+											className: "font-display text-lg font-bold text-marbre",
+											children: av.titre
+										}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+											className: "mt-1.5 text-sm text-muted-foreground leading-relaxed",
+											children: av.desc
+										})]
+									})]
+								}),
+								/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+									className: "relative mt-5 flex items-baseline gap-2 border-t border-border/50 pt-4",
+									children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+										className: "font-display text-3xl font-black text-primary",
+										children: av.stat
+									}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+										className: "mono-plan text-[0.6rem]",
+										children: av.label
+									})]
+								})
+							]
+						}, av.titre);
+					})
+				})
+			]
+		})]
+	});
+}
+var ICONES = {
+	maconnerie: Hammer,
+	electricite: Zap,
+	plomberie: Droplets,
+	"renovation-complete": RefreshCcw,
+	peinture: PaintbrushVertical,
+	carrelage: Grid3x3,
+	sols: Layers,
+	"cuisine-sdb": ChefHat,
+	depannage: Wrench
+};
+var COULEUR_COURONNE = {
+	"gros-oeuvre": "oklch(0.72 0.132 42)",
+	finitions: "oklch(0.82 0.09 62)"
+};
+function FichePopup({ metier, onClose }) {
+	const couleur = COULEUR_COURONNE[metier.couronne];
+	const Icone = ICONES[metier.id] ?? Wrench;
+	(0, import_react.useEffect)(() => {
+		const onKey = (e) => {
+			if (e.key === "Escape") onClose();
+		};
+		window.addEventListener("keydown", onKey);
+		return () => window.removeEventListener("keydown", onKey);
+	}, [onClose]);
+	(0, import_react.useEffect)(() => {
+		document.body.style.overflow = "hidden";
+		return () => {
+			document.body.style.overflow = "";
+		};
+	}, []);
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+		className: "fixed inset-0 z-50 flex items-center justify-center px-4",
+		style: { background: "oklch(0 0 0 / 0.72)" },
+		onClick: onClose,
+		role: "dialog",
+		"aria-modal": "true",
+		"aria-label": `Fiche technique — ${metier.nom}`,
+		children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+			className: "relative w-full max-w-lg animate-monter rounded-sm border border-border bg-card/95 p-7 shadow-2xl backdrop-blur-md",
+			style: { boxShadow: `0 0 0 1px oklch(0.28 0.02 62), 0 40px 80px -20px oklch(0 0 0 / 0.9)` },
+			onClick: (e) => e.stopPropagation(),
+			children: [
+				/* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
+					onClick: onClose,
+					className: "absolute right-4 top-4 flex h-8 w-8 items-center justify-center rounded-full border border-border text-muted-foreground transition-colors hover:border-primary hover:text-primary",
+					"aria-label": "Fermer",
+					children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(X, { className: "h-4 w-4" })
+				}),
+				/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+					className: "flex items-center gap-4",
+					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+						className: "flex h-12 w-12 shrink-0 items-center justify-center rounded-full border",
+						style: {
+							borderColor: couleur,
+							background: `linear-gradient(135deg, ${couleur}33, ${couleur}11)`,
+							boxShadow: `0 0 16px ${couleur}44`
+						},
+						children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Icone, { style: {
+							width: "52%",
+							height: "52%",
+							color: couleur
+						} })
+					}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+						className: "mono-plan block !text-primary",
+						children: "Fiche technique"
+					}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("h3", {
+						className: "mt-1 font-display text-[clamp(1.6rem,3vw,2.4rem)] uppercase text-marbre leading-none",
+						children: metier.nom
+					})] })]
+				}),
+				/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+					className: "mono-plan mt-4",
+					children: metier.resume
+				}),
+				/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+					className: "mt-5 h-px w-full",
+					style: { background: `linear-gradient(90deg, ${couleur}, transparent)` }
+				}),
+				/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+					className: "mt-5 text-muted-foreground leading-relaxed",
+					children: metier.description
+				}),
+				/* @__PURE__ */ (0, import_jsx_runtime.jsx)("ul", {
+					className: "mt-6 space-y-2 border-t border-border pt-5",
+					children: metier.fiche.map((f) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("li", {
+						className: "mono-plan flex items-center gap-3 !text-foreground/80",
+						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+							className: "h-px w-6 shrink-0",
+							style: { background: couleur },
+							"aria-hidden": true
+						}), f]
+					}, f))
+				}),
+				/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+					className: "mt-8",
+					children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(BoutonMagnetique, {
+						href: "#devis",
+						children: ["Devis pour ", metier.nom]
+					})
+				})
+			]
+		})
+	});
+}
+/** ACTE 2 — L'Explorateur de corps de métier (anneau rotatif + popup fiche). */
+function ActeExplorateur() {
+	const sectionRef = (0, import_react.useRef)(null);
+	const ringRef = (0, import_react.useRef)(null);
+	const [rotation, setRotation] = (0, import_react.useState)(0);
+	const [survole, setSurvole] = (0, import_react.useState)(null);
+	const [selection, setSelection] = (0, import_react.useState)(null);
+	const actif = METIERS.find((m) => m.id === selection) ?? null;
+	(0, import_react.useEffect)(() => {
+		const section = sectionRef.current;
+		if (!section) return;
+		const onScroll = () => {
+			const rect = section.getBoundingClientRect();
+			const total = section.offsetHeight - window.innerHeight;
+			const progress = Math.min(1, Math.max(0, -rect.top / Math.max(1, total)));
+			setRotation(progress * 360);
+		};
+		onScroll();
+		window.addEventListener("scroll", onScroll, { passive: true });
+		return () => window.removeEventListener("scroll", onScroll);
+	}, []);
+	(0, import_react.useEffect)(() => {
+		if (ringRef.current) ringRef.current.style.transform = `rotate(${rotation}deg)`;
+	}, [rotation]);
+	const n = METIERS.length;
+	const RAYON = 36;
+	const ouvrirFiche = (id) => setSelection(id);
+	const fermerFiche = () => setSelection(null);
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("section", {
+		ref: sectionRef,
+		id: "services",
+		className: "relative bg-background py-24 md:py-32",
+		"aria-label": "Nos corps d'état",
+		children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+			className: "mx-auto max-w-7xl px-5 md:px-14",
+			children: [
+				/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("h2", {
+					className: "texte-grave mt-6 max-w-4xl text-[clamp(2.4rem,7vw,6rem)] font-black",
+					children: [
+						"Neuf métiers,",
+						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("br", {}),
+						"un seul interlocuteur"
+					]
+				}),
+				/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+					className: "mono-plan mt-6",
+					children: "Cliquez une icône · Cuivre : gros œuvre · Or : finitions"
+				}),
+				/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+					className: "mt-14 flex items-center justify-center py-8",
+					children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+						className: "relative aspect-square w-full max-w-[560px]",
+						children: [
+							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+								"aria-hidden": true,
+								className: "absolute inset-[8%] rounded-full border border-border",
+								style: {
+									background: "radial-gradient(circle at 38% 35%, oklch(0.22 0.014 62) 0%, oklch(0.14 0.007 62) 100%)",
+									boxShadow: "0 0 0 1px oklch(0.28 0.02 62), inset 0 0 40px oklch(0.10 0.005 62 / 0.6)"
+								}
+							}),
+							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+								"aria-hidden": true,
+								className: "absolute inset-[18%] rounded-full border border-primary/15"
+							}),
+							/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+								className: "absolute inset-0 flex flex-col items-center justify-center pointer-events-none z-10",
+								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+									className: "font-display text-[clamp(2rem,6vw,3.2rem)] font-black leading-none",
+									style: { color: "oklch(0.72 0.132 42)" },
+									children: survole ? String(METIERS.findIndex((m) => m.id === survole) + 1).padStart(2, "0") : "09"
+								}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+									className: "mono-plan mt-1 !text-muted-foreground text-[10px] uppercase tracking-widest",
+									children: survole ? METIERS.find((m) => m.id === survole)?.couronne : "métiers"
+								})]
+							}),
+							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+								ref: ringRef,
+								className: "absolute inset-0",
+								style: { transition: "transform 200ms cubic-bezier(0.25,0.46,0.45,0.94)" },
+								children: METIERS.map((m, i) => {
+									const angleRad = i / n * Math.PI * 2 - Math.PI / 2;
+									const cx = 50 + RAYON * Math.cos(angleRad);
+									const cy = 50 + RAYON * Math.sin(angleRad);
+									const isHovered = m.id === survole;
+									const Icone = ICONES[m.id] ?? Wrench;
+									const couleur = COULEUR_COURONNE[m.couronne];
+									const nomCourt = m.nom.split(" ")[0];
+									return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("button", {
+										"aria-label": `Voir la fiche — ${m.nom}`,
+										onClick: () => ouvrirFiche(m.id),
+										onMouseEnter: () => setSurvole(m.id),
+										onMouseLeave: () => setSurvole(null),
+										className: "absolute flex flex-col items-center focus-visible:outline-none",
+										style: {
+											left: `${cx}%`,
+											top: `${cy}%`,
+											width: "clamp(72px, 15%, 96px)",
+											transform: `translate(-50%, -50%) rotate(-${rotation}deg)`,
+											transition: "transform 200ms cubic-bezier(0.25,0.46,0.45,0.94)",
+											zIndex: isHovered ? 20 : 10
+										},
+										children: [
+											isHovered && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+												"aria-hidden": true,
+												className: "absolute top-0 left-0 right-0 rounded-full animate-ping",
+												style: {
+													height: "clamp(72px, 15%, 96px)",
+													background: `${couleur}22`
+												}
+											}),
+											/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+												className: "relative flex w-full items-center justify-center rounded-full border transition-all duration-300",
+												style: {
+													height: "clamp(72px, 15%, 96px)",
+													background: isHovered ? `linear-gradient(135deg, ${couleur}33, ${couleur}11)` : "oklch(0.18 0.01 62 / 0.9)",
+													borderColor: isHovered ? couleur : "oklch(0.30 0.015 62)",
+													boxShadow: isHovered ? `0 0 20px ${couleur}66` : "none",
+													transform: isHovered ? "scale(1.2)" : "scale(1)"
+												},
+												children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Icone, { style: {
+													width: "52%",
+													height: "52%",
+													color: isHovered ? couleur : "oklch(0.68 0.05 62)",
+													transition: "color 300ms"
+												} })
+											}),
+											/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+												className: "mt-2 block text-center leading-tight",
+												style: {
+													fontSize: "clamp(11px, 2.4vw, 14px)",
+													fontWeight: 600,
+													color: isHovered ? couleur : "oklch(0.72 0.018 72)",
+													fontFamily: "var(--font-mono, monospace)",
+													letterSpacing: "0.06em",
+													textTransform: "uppercase",
+													whiteSpace: "nowrap",
+													transition: "color 300ms",
+													textShadow: "0 1px 4px oklch(0 0 0 / 0.8)"
+												},
+												children: nomCourt
+											})
+										]
+									}, m.id);
+								})
+							}),
+							/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("svg", {
+								"aria-hidden": true,
+								className: "absolute inset-0 w-full h-full pointer-events-none opacity-[0.18]",
+								viewBox: "0 0 100 100",
+								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("circle", {
+									cx: "50",
+									cy: "50",
+									r: "42",
+									fill: "none",
+									stroke: "oklch(0.72 0.132 42)",
+									strokeWidth: "0.3",
+									strokeDasharray: "2 4"
+								}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("circle", {
+									cx: "50",
+									cy: "50",
+									r: "28",
+									fill: "none",
+									stroke: "oklch(0.72 0.132 42)",
+									strokeWidth: "0.2",
+									strokeDasharray: "1 6"
+								})]
+							}),
+							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+								className: "mono-plan pointer-events-none absolute -bottom-8 left-0 right-0 text-center text-[11px]",
+								children: "Scrollez pour faire pivoter · Cliquez pour la fiche"
+							})
+						]
+					})
+				}),
+				/* @__PURE__ */ (0, import_jsx_runtime.jsx)("ul", {
+					className: "mt-20 grid gap-px overflow-hidden rounded-sm border border-border bg-border md:grid-cols-3",
+					children: METIERS.map((m) => {
+						const Icone = ICONES[m.id] ?? Wrench;
+						const couleur = COULEUR_COURONNE[m.couronne];
+						return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("li", {
+							className: "group bg-card/60 p-5 transition-colors duration-300 hover:bg-card cursor-pointer",
+							onClick: () => ouvrirFiche(m.id),
+							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+								className: "flex items-center gap-3 mb-2",
+								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+									className: "flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-border transition-colors duration-300 group-hover:border-primary/50",
+									style: { color: couleur },
+									children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Icone, { className: "h-4 w-4" })
+								}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("h3", {
+									className: "font-display text-xl uppercase text-marbre",
+									children: m.nom
+								})]
+							}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+								className: "mt-1 text-sm text-muted-foreground pl-11",
+								children: m.resume
+							})]
+						}, m.id);
+					})
+				})
+			]
+		}), actif && /* @__PURE__ */ (0, import_jsx_runtime.jsx)(FichePopup, {
+			metier: actif,
+			onClose: fermerFiche
+		})]
+	});
+}
+var avant_salle_de_bain_default = "/assets/avant-salle-de-bain-C_fhtVpk.jpg";
+var apres_salle_de_bain_default = "/assets/apres-salle-de-bain-U_UpSBzt.jpg";
+var avant_cuisine_default = "/assets/avant-cuisine-DtVN3OB_.jpg";
+var apres_cuisine_default = "/assets/apres-cuisine-jPZ3DLtz.jpg";
+var avant_facade_default = "/assets/avant-facade-Db4qCyeZ.jpg";
+var apres_facade_default = "/assets/apres-facade-N9CI0lSf.jpg";
+var IMAGES = {
+	sdb: {
+		avant: avant_salle_de_bain_default,
+		apres: apres_salle_de_bain_default
+	},
+	cuisine: {
+		avant: avant_cuisine_default,
+		apres: apres_cuisine_default
+	},
+	facade: {
+		avant: avant_facade_default,
+		apres: apres_facade_default
+	}
+};
+/** Éclats de recomposition (grille irrégulière façon voronoï). */
+var ECLATS = Array.from({ length: 24 }, (_, i) => {
+	const col = i % 6;
+	const ligne = Math.floor(i / 6);
+	const decalage = ligne % 2 * 3;
+	return {
+		clip: `polygon(${col * 16.7 - 1}% ${ligne * 25 - 1}%, ${col * 16.7 + 18}% ${ligne * 25 - 1 + decalage}%, ${col * 16.7 + 17}% ${ligne * 25 + 26}%, ${col * 16.7 - 2}% ${ligne * 25 + 25 + decalage}%)`,
+		retard: (col * .9 + ligne * 1.3) / 10
+	};
+});
+function AvantApres({ id, titre }) {
+	const [valeur, setValeur] = (0, import_react.useState)(50);
+	const img = IMAGES[id];
+	const t = valeur / 100;
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+		className: "group relative",
+		children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+			className: "relative aspect-[4/3] overflow-hidden rounded-sm border border-border bg-muted",
+			children: [
+				/* @__PURE__ */ (0, import_jsx_runtime.jsx)("img", {
+					src: img.avant,
+					alt: `Avant travaux — ${titre}`,
+					loading: "lazy",
+					width: 1280,
+					height: 960,
+					className: "absolute inset-0 h-full w-full object-cover"
+				}),
+				ECLATS.map((e, i) => {
+					const avance = Math.min(1, Math.max(0, (t - e.retard) * 3.4));
+					return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("img", {
+						src: img.apres,
+						alt: "",
+						"aria-hidden": true,
+						loading: "lazy",
+						width: 1280,
+						height: 960,
+						className: "absolute inset-0 h-full w-full object-cover",
+						style: {
+							clipPath: e.clip,
+							opacity: avance,
+							transform: `translate3d(${(1 - avance) * -14}px, ${(1 - avance) * 10}px, 0) scale(${.94 + avance * .06})`,
+							transition: "opacity 220ms linear, transform 420ms var(--ressort)"
+						}
+					}, i);
+				}),
+				/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+					"aria-hidden": true,
+					className: "pointer-events-none absolute inset-y-0 w-px bg-primary",
+					style: {
+						left: `${valeur}%`,
+						boxShadow: "var(--lueur-cuivre)"
+					}
+				}),
+				/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+					className: "mono-plan absolute left-4 top-4 rounded-full bg-background/70 px-3 py-1 backdrop-blur",
+					children: "Avant"
+				}),
+				/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+					className: "mono-plan absolute right-4 top-4 rounded-full bg-background/70 px-3 py-1 !text-primary backdrop-blur",
+					children: "Après"
+				})
+			]
+		}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("input", {
+			type: "range",
+			min: 0,
+			max: 100,
+			value: valeur,
+			"aria-label": `Transition avant / après — ${titre}`,
+			onChange: (e) => setValeur(Number(e.target.value)),
+			className: "mt-4 w-full accent-[oklch(0.72_0.132_42)]"
+		})]
+	});
+}
+/** ACTE 3 — Les Chantiers. Galerie cinétique avant / après. */
+function ActeChantiers() {
+	const [filtre, setFiltre] = (0, import_react.useState)("Toutes réalisations");
+	const filtres = ["Toutes réalisations", ...new Set(REALISATIONS.map((r) => r.metier))];
+	const visibles = REALISATIONS.filter((r) => filtre === "Toutes réalisations" || r.metier === filtre);
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("section", {
+		id: "realisations",
+		className: "relative bg-background py-24 md:py-32",
+		"aria-label": "Nos réalisations",
+		children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+			className: "mx-auto max-w-7xl px-5 md:px-14",
+			children: [
+				/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("h2", {
+					className: "texte-grave mt-6 max-w-4xl text-[clamp(2.4rem,7vw,6rem)] font-black",
+					children: [
+						"La matière",
+						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("br", {}),
+						"se recompose"
+					]
+				}),
+				/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+					className: "mt-10 flex flex-wrap gap-2",
+					children: filtres.map((f) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
+						onClick: () => setFiltre(f),
+						className: `mono-plan rounded-full border px-4 py-2 transition-colors duration-300 ${filtre === f ? "border-primary bg-primary/15 !text-primary" : "border-border hover:border-primary/50"}`,
+						children: f
+					}, f))
+				}),
+				/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+					className: "mt-12 grid gap-10 md:grid-cols-2 xl:grid-cols-3",
+					children: visibles.map((r) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("article", {
+						className: "animate-monter",
+						children: [
+							/* @__PURE__ */ (0, import_jsx_runtime.jsx)(AvantApres, {
+								id: r.id,
+								titre: r.titre
+							}),
+							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h3", {
+								className: "mt-5 font-display text-2xl uppercase text-marbre",
+								children: r.titre
+							}),
+							/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("p", {
+								className: "mono-plan mt-2",
+								children: [
+									r.ville,
+									" · ",
+									r.metier,
+									" · ",
+									r.duree
+								]
+							})
+						]
+					}, r.id))
+				})
+			]
+		})
+	});
+}
+var TEMOIGNAGES = [
+	{
+		nom: "Sophie L.",
+		ville: "Marseille",
+		projet: "Rénovation complète appartement",
+		note: 5,
+		texte: "Du devis à la livraison, tout a été parfait. L'équipe a respecté le planning et le budget. Le suivi était exemplaire, je recommande vivement.",
+		initiales: "SL"
+	},
+	{
+		nom: "Marc D.",
+		ville: "Toulon",
+		projet: "Cuisine & salle de bain",
+		note: 5,
+		texte: "Une cuisine et une salle de bain transformées en 4 semaines chrono. La coordination entre les corps d'état était impressionnante. Un vrai gain de temps.",
+		initiales: "MD"
+	},
+	{
+		nom: "Caroline B.",
+		ville: "Nice",
+		projet: "Ravalement façade + peinture",
+		note: 5,
+		texte: "Une équipe professionnelle et minutieuse. Le chantier était impeccable chaque soir. La façade a retrouvé son éclat d'origine, je suis ravie.",
+		initiales: "CB"
+	},
+	{
+		nom: "Thomas R.",
+		ville: "Aix-en-Provence",
+		projet: "Rénovation salle de bain",
+		note: 5,
+		texte: "Interlocuteur unique, chantier propre, délais tenus. Que demander de plus ? Le carrelage est magnifique, les finitions parfaites.",
+		initiales: "TR"
+	},
+	{
+		nom: "Nathalie K.",
+		ville: "Marseille",
+		projet: "Électricité & plomberie",
+		note: 5,
+		texte: "Intervention rapide pour une urgence électrique. L'électricien était chez moi en 2h, problème résolu proprement. Merci pour la réactivité.",
+		initiales: "NK"
+	}
+];
+function EtoilesTemoignage({ score }) {
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+		className: "flex gap-0.5",
+		children: Array.from({ length: 5 }).map((_, i) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)(motion.span, {
+			initial: {
+				opacity: 0,
+				scale: 0
+			},
+			animate: {
+				opacity: 1,
+				scale: 1
+			},
+			transition: { delay: i * .1 },
+			children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Star, { className: `h-4 w-4 ${i < score ? "text-primary fill-primary" : "text-border fill-border/30"}` })
+		}, i))
+	});
+}
+function TemoignagesClients() {
+	const [indexCourant, setIndexCourant] = (0, import_react.useState)(0);
+	const [direction, setDirection] = (0, import_react.useState)(1);
+	const [noteSaisie, setNoteSaisie] = (0, import_react.useState)(0);
+	const [envoye, setEnvoye] = (0, import_react.useState)(false);
+	const [hoverSaisie, setHoverSaisie] = (0, import_react.useState)(0);
+	const suivantTemoignage = (0, import_react.useCallback)(() => {
+		setDirection(1);
+		setIndexCourant((p) => (p + 1) % TEMOIGNAGES.length);
+	}, []);
+	const precedentTemoignage = (0, import_react.useCallback)(() => {
+		setDirection(-1);
+		setIndexCourant((p) => (p - 1 + TEMOIGNAGES.length) % TEMOIGNAGES.length);
+	}, []);
+	(0, import_react.useEffect)(() => {
+		const timer = setInterval(suivantTemoignage, 5e3);
+		return () => clearInterval(timer);
+	}, [suivantTemoignage]);
+	const temoignageActif = TEMOIGNAGES[indexCourant];
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("section", {
+		className: "relative overflow-hidden border-t border-border px-5 py-24 md:px-14 md:py-32",
+		children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+			className: "absolute inset-0 pointer-events-none opacity-[0.03]",
+			style: {
+				backgroundImage: "radial-gradient(circle at 1px 1px, oklch(0.72 0.132 42) 1px, transparent 0)",
+				backgroundSize: "30px 30px"
+			}
+		}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+			className: "mx-auto max-w-5xl",
+			children: [
+				/* @__PURE__ */ (0, import_jsx_runtime.jsx)(motion.span, {
+					initial: {
+						opacity: 0,
+						y: 10
+					},
+					whileInView: {
+						opacity: 1,
+						y: 0
+					},
+					viewport: { once: true },
+					className: "mono-plan !text-primary",
+					children: "Témoignages"
+				}),
+				/* @__PURE__ */ (0, import_jsx_runtime.jsxs)(motion.h2, {
+					initial: {
+						opacity: 0,
+						y: 20
+					},
+					whileInView: {
+						opacity: 1,
+						y: 0
+					},
+					viewport: { once: true },
+					transition: {
+						delay: .1,
+						duration: .6
+					},
+					className: "texte-grave mt-2 text-[clamp(2.4rem,6vw,5rem)] font-black",
+					children: [
+						"Ils nous ont fait ",
+						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("br", {}),
+						"confiance"
+					]
+				}),
+				/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+					className: "relative mt-14",
+					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+						className: "relative mx-auto max-w-2xl",
+						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(AnimatePresence, {
+							mode: "wait",
+							custom: direction,
+							children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(motion.div, {
+								custom: direction,
+								variants: {
+									enter: (dir) => ({
+										x: dir > 0 ? 200 : -200,
+										opacity: 0
+									}),
+									center: {
+										x: 0,
+										opacity: 1
+									},
+									exit: (dir) => ({
+										x: dir > 0 ? -200 : 200,
+										opacity: 0
+									})
+								},
+								initial: "enter",
+								animate: "center",
+								exit: "exit",
+								transition: {
+									duration: .4,
+									ease: "easeInOut"
+								},
+								className: "relative rounded-sm border border-border bg-card/60 p-8 md:p-10",
+								children: [
+									/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Quote, { className: "absolute right-6 top-6 h-10 w-10 text-primary/10" }),
+									/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+										className: "flex h-14 w-14 items-center justify-center rounded-full border border-primary/20 bg-primary/5 text-lg font-bold text-primary",
+										children: temoignageActif.initiales
+									}),
+									/* @__PURE__ */ (0, import_jsx_runtime.jsx)(EtoilesTemoignage, { score: temoignageActif.note }),
+									/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("p", {
+										className: "mt-4 text-base leading-relaxed text-muted-foreground md:text-lg",
+										children: [
+											"“",
+											temoignageActif.texte,
+											"”"
+										]
+									}),
+									/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+										className: "mt-6 flex items-center gap-3 border-t border-border/50 pt-4",
+										children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+											className: "font-display text-lg font-bold text-marbre",
+											children: temoignageActif.nom
+										}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("p", {
+											className: "mono-plan text-[0.6rem]",
+											children: [
+												temoignageActif.ville,
+												" — ",
+												temoignageActif.projet
+											]
+										})] })
+									})
+								]
+							}, indexCourant)
+						}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+							className: "mt-8 flex items-center justify-center gap-4",
+							children: [
+								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
+									onClick: precedentTemoignage,
+									className: "flex h-10 w-10 items-center justify-center rounded-full border border-border transition-colors hover:border-primary hover:text-primary",
+									"aria-label": "Témoignage précédent",
+									children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ChevronLeft, { className: "h-4 w-4" })
+								}),
+								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+									className: "flex gap-2",
+									children: TEMOIGNAGES.map((_, i) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
+										onClick: () => {
+											setDirection(i > indexCourant ? 1 : -1);
+											setIndexCourant(i);
+										},
+										className: `h-2 w-2 rounded-full transition-all duration-500 ${i === indexCourant ? "w-6 bg-primary" : "bg-border hover:bg-primary/50"}`,
+										"aria-label": `Témoignage ${i + 1}`
+									}, i))
+								}),
+								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
+									onClick: suivantTemoignage,
+									className: "flex h-10 w-10 items-center justify-center rounded-full border border-border transition-colors hover:border-primary hover:text-primary",
+									"aria-label": "Témoignage suivant",
+									children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ChevronRight, { className: "h-4 w-4" })
+								})
+							]
+						})]
+					}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+						className: "mt-16 grid gap-4 sm:grid-cols-3",
+						children: TEMOIGNAGES.slice(0, 3).map((t, i) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(motion.div, {
+							initial: {
+								opacity: 0,
+								y: 20
+							},
+							whileInView: {
+								opacity: 1,
+								y: 0
+							},
+							viewport: { once: true },
+							transition: { delay: i * .1 },
+							className: "group cursor-pointer rounded-sm border border-border/50 bg-card/20 p-4 transition-all duration-300 hover:border-primary/30 hover:bg-card/40",
+							onClick: () => {
+								setDirection(i > indexCourant ? 1 : -1);
+								setIndexCourant(i);
+							},
+							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+								className: "flex items-center gap-3",
+								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+									className: "flex h-8 w-8 items-center justify-center rounded-full border border-primary/20 bg-primary/5 text-xs font-bold text-primary",
+									children: t.initiales
+								}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+									className: "text-sm font-semibold text-marbre",
+									children: t.nom
+								}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+									className: "flex",
+									children: Array.from({ length: t.note }).map((_, j) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Star, { className: "h-3 w-3 fill-primary text-primary" }, j))
+								})] })]
+							}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("p", {
+								className: "mt-2 line-clamp-2 text-xs text-muted-foreground",
+								children: [
+									"“",
+									t.texte,
+									"”"
+								]
+							})]
+						}, t.nom))
+					})]
+				}),
+				/* @__PURE__ */ (0, import_jsx_runtime.jsx)(motion.div, {
+					initial: {
+						opacity: 0,
+						y: 30
+					},
+					whileInView: {
+						opacity: 1,
+						y: 0
+					},
+					viewport: { once: true },
+					transition: {
+						delay: .3,
+						duration: .6
+					},
+					className: "mx-auto mt-16 max-w-lg",
+					children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+						className: "rounded-sm border border-border bg-card/30 p-6 md:p-8",
+						children: [
+							/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+								className: "flex items-center gap-3",
+								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(ThumbsUp, { className: "h-5 w-5 text-primary" }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+									className: "mono-plan !text-primary",
+									children: "Donnez votre avis"
+								})]
+							}),
+							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+								className: "mt-2 text-sm text-muted-foreground",
+								children: "Votre expérience nous aide à nous améliorer. Laissez-nous un mot."
+							}),
+							/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+								className: "mt-5",
+								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("label", {
+									className: "mono-plan block text-xs",
+									children: "Votre note"
+								}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+									className: "mt-2 flex gap-1",
+									children: Array.from({ length: 5 }).map((_, i) => {
+										const etoile = i + 1;
+										return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
+											type: "button",
+											onClick: () => {
+												if (!envoye) setNoteSaisie(etoile);
+											},
+											onMouseEnter: () => {
+												if (!envoye) setHoverSaisie(etoile);
+											},
+											onMouseLeave: () => setHoverSaisie(0),
+											className: "transition-transform hover:scale-110",
+											disabled: envoye,
+											children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Star, { className: `h-7 w-7 transition-all duration-200 ${(hoverSaisie || noteSaisie) >= etoile ? "fill-primary text-primary" : "fill-border/30 text-border/30"}` })
+										}, i);
+									})
+								})]
+							}),
+							/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+								className: "mt-4 grid gap-3",
+								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("input", {
+									placeholder: "Votre nom",
+									disabled: envoye,
+									className: "w-full rounded-sm border border-input bg-background/50 px-3 py-2.5 text-sm text-foreground outline-none transition-colors focus:border-primary disabled:opacity-50"
+								}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("textarea", {
+									placeholder: "Partagez votre expérience...",
+									rows: 3,
+									disabled: envoye,
+									className: "w-full resize-none rounded-sm border border-input bg-background/50 px-3 py-2.5 text-sm text-foreground outline-none transition-colors focus:border-primary disabled:opacity-50"
+								})]
+							}),
+							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
+								type: "button",
+								onClick: () => setEnvoye(true),
+								disabled: envoye || noteSaisie === 0,
+								className: "mono-plan mt-4 w-full rounded-sm bg-primary px-5 py-3 !text-primary-foreground transition-all duration-300 hover:bg-primary/90 disabled:cursor-not-allowed disabled:opacity-40",
+								children: envoye ? "Merci pour votre avis !" : "Publier mon avis"
+							}),
+							envoye && /* @__PURE__ */ (0, import_jsx_runtime.jsx)(motion.p, {
+								initial: {
+									opacity: 0,
+									y: 10
+								},
+								animate: {
+									opacity: 1,
+									y: 0
+								},
+								className: "mono-plan mt-3 text-center !text-primary",
+								children: "Merci — votre avis a bien été enregistré. Il apparaîtra après modération."
+							})
+						]
+					})
+				})
+			]
+		})]
+	});
+}
+var AVIS_GOOGLE = [
+	{
+		nom: "Sophie L.",
+		note: 5,
+		texte: "Entreprise sérieuse et professionnelle. Travail soigné, délais respectés. Je recommande.",
+		date: "Il y a 2 mois"
+	},
+	{
+		nom: "Marc D.",
+		note: 5,
+		texte: "Très satisfait de la rénovation complète de ma cuisine. Équipe à l'écoute et réactive.",
+		date: "Il y a 1 mois"
+	},
+	{
+		nom: "Caroline B.",
+		note: 5,
+		texte: "Ravalement de façade impeccable. Propreté irréprochable, finitions parfaites.",
+		date: "Il y a 3 semaines"
+	},
+	{
+		nom: "Thomas R.",
+		note: 5,
+		texte: "Devis rapide, chantier propre, équipe sympathique. Un sans-faute.",
+		date: "Il y a 2 semaines"
+	},
+	{
+		nom: "Nathalie K.",
+		note: 5,
+		texte: "Intervention d'urgence pour une fuite d'eau. Réactifs et efficaces.",
+		date: "Il y a 5 jours"
+	}
+];
+function EtoilesGoogle({ score }) {
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+		className: "flex gap-0.5",
+		children: Array.from({ length: 5 }).map((_, i) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Star, { className: `h-3.5 w-3.5 ${i < score ? "fill-primary text-primary" : "fill-border/40 text-border/40"}` }, i))
+	});
+}
+function AvisGoogle() {
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("section", {
+		className: "border-t border-border px-5 py-20 md:px-14 md:py-28",
+		children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+			className: "mx-auto max-w-6xl",
+			children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+				className: "grid items-center gap-10 lg:grid-cols-[1fr_1.5fr]",
+				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)(motion.div, {
+					initial: {
+						opacity: 0,
+						x: -30
+					},
+					whileInView: {
+						opacity: 1,
+						x: 0
+					},
+					viewport: { once: true },
+					transition: { duration: .6 },
+					className: "flex flex-col items-center rounded-sm border border-border bg-card/40 p-10 text-center lg:items-start lg:text-left",
+					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+						className: "flex items-center gap-2",
+						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+							className: "text-6xl font-black text-marbre",
+							children: "4.9"
+						}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+							className: "flex flex-col gap-1",
+							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+								className: "flex",
+								children: Array.from({ length: 5 }).map((_, i) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)(motion.span, {
+									initial: {
+										opacity: 0,
+										scale: 0
+									},
+									whileInView: {
+										opacity: 1,
+										scale: 1
+									},
+									viewport: { once: true },
+									transition: { delay: i * .1 + .3 },
+									children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Star, { className: "h-6 w-6 fill-primary text-primary" })
+								}, i))
+							}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+								className: "mono-plan text-xs",
+								children: "Basé sur 47 avis Google"
+							})]
+						})]
+					}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("a", {
+						href: "https://www.google.com/search?q=seni+djelassi+marseille+avis",
+						target: "_blank",
+						rel: "noopener noreferrer",
+						className: "mono-plan mt-6 inline-flex items-center gap-2 rounded-sm border border-border px-5 py-3 text-xs transition-colors hover:border-primary/50 hover:!text-primary",
+						children: ["Voir tous les avis ", /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ExternalLink, { className: "h-3 w-3" })]
+					})]
+				}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+					className: "space-y-3",
+					children: AVIS_GOOGLE.map((avis, i) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(motion.div, {
+						initial: {
+							opacity: 0,
+							x: 30
+						},
+						whileInView: {
+							opacity: 1,
+							x: 0
+						},
+						viewport: { once: true },
+						transition: {
+							delay: i * .1,
+							duration: .4
+						},
+						className: "group flex items-start gap-3 rounded-sm border border-border/40 bg-card/20 p-4 transition-all duration-300 hover:border-primary/20 hover:bg-card/40",
+						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+							className: "flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-primary/20 bg-primary/5 text-xs font-bold text-primary/70",
+							children: avis.nom.split(" ").map((p) => p[0]).join("")
+						}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+							className: "flex-1 min-w-0",
+							children: [
+								/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+									className: "flex items-center justify-between gap-2",
+									children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+										className: "text-sm font-semibold text-marbre",
+										children: avis.nom
+									}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+										className: "mono-plan shrink-0 text-[0.55rem] text-muted-foreground",
+										children: avis.date
+									})]
+								}),
+								/* @__PURE__ */ (0, import_jsx_runtime.jsx)(EtoilesGoogle, { score: avis.note }),
+								/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("p", {
+									className: "mt-1 line-clamp-2 text-sm text-muted-foreground",
+									children: [
+										"“",
+										avis.texte,
+										"”"
+									]
+								})
+							]
+						})]
+					}, avis.nom))
+				})]
+			})
+		})
+	});
+}
+var ETAPES$1 = [
+	{
+		num: "01",
+		titre: "Consultation initiale",
+		desc: "Évaluation sur site, prise de cotes et écoute active de vos besoins pour poser les jalons du projet.",
+		delai: "2-4 semaines"
+	},
+	{
+		num: "02",
+		titre: "Étude & Devis",
+		desc: "Élaboration des plans détaillés, chiffrage précis et proposition tarifaire transparente sans surprise.",
+		delai: "2-3 semaines"
+	},
+	{
+		num: "03",
+		titre: "Préparation & Permis",
+		desc: "Démarches administratives, autorisations et planification des approvisionnements en matériaux.",
+		delai: "1-4 semaines"
+	},
+	{
+		num: "04",
+		titre: "Réalisation",
+		desc: "Exécution des travaux par nos artisans qualifiés selon le calendrier validé, avec un interlocuteur unique.",
+		delai: "Variable"
+	},
+	{
+		num: "05",
+		titre: "Suivi qualité",
+		desc: "Inspections régulières à chaque phase clé pour garantir la conformité aux règles de l'art.",
+		delai: "Continu"
+	},
+	{
+		num: "06",
+		titre: "Livraison finale",
+		desc: "Présentation détaillée des finitions, remise des clés et dossier de garantie décennale.",
+		delai: "1 jour"
+	}
+];
+function ActeProcessus() {
+	const sectionRef = (0, import_react.useRef)(null);
+	const [progress, setProgress] = (0, import_react.useState)(0);
+	(0, import_react.useEffect)(() => {
+		const handleScroll = () => {
+			const section = sectionRef.current;
+			if (!section) return;
+			const rect = section.getBoundingClientRect();
+			const windowHeight = window.innerHeight;
+			const start = rect.top - windowHeight / 2;
+			const total = rect.bottom - windowHeight / 2 - 300 - start;
+			let p = -start / total;
+			p = Math.max(0, Math.min(1, p));
+			setProgress(p);
+		};
+		window.addEventListener("scroll", handleScroll, { passive: true });
+		handleScroll();
+		return () => window.removeEventListener("scroll", handleScroll);
+	}, []);
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("section", {
+		ref: sectionRef,
+		id: "processus",
+		className: "relative overflow-hidden bg-background py-24 md:py-32",
+		"aria-label": "Notre processus",
+		children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+			"aria-hidden": true,
+			className: "absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 h-[800px] w-[800px] rounded-full pointer-events-none opacity-20",
+			style: {
+				background: "radial-gradient(circle, oklch(0.72 0.132 42 / 20%) 0%, transparent 70%)",
+				transform: `translate(-50%, -50%) translateY(${progress * 200}px)`
+			}
+		}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+			className: "relative mx-auto max-w-7xl px-5 md:px-14",
+			children: [
+				/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("h2", {
+					className: "texte-grave mt-6 max-w-4xl text-[clamp(2.4rem,7vw,6rem)] font-black",
+					children: [
+						"Transformer",
+						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("br", {}),
+						"votre vision"
+					]
+				}),
+				/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+					className: "mt-6 max-w-2xl text-lg text-muted-foreground",
+					children: "Six étapes maîtrisées, de l'idée brute à la finition parfaite. Un seul interlocuteur pour vous accompagner."
+				}),
+				/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+					className: "relative mt-24 max-w-5xl mx-auto pl-10 md:pl-20",
+					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+						className: "absolute left-0 top-0 bottom-0 w-0.5 bg-border md:left-6",
+						children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+							className: "absolute top-0 left-1/2 w-[3px] -translate-x-1/2 bg-primary",
+							style: {
+								height: `${progress * 100}%`,
+								boxShadow: "0 0 20px 2px oklch(0.72 0.132 42 / 80%)",
+								transition: "height 200ms ease-out"
+							}
+						})
+					}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+						className: "space-y-20 md:space-y-32",
+						children: ETAPES$1.map((etape, index) => {
+							const threshold = index / (ETAPES$1.length - 1);
+							const distance = Math.abs(progress - threshold);
+							const isActif = progress >= threshold - .05;
+							const isPleineLumiere = distance < .15;
+							return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+								className: "relative group",
+								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+									className: "absolute -left-10 top-8 flex h-10 w-10 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-sm bg-background md:-left-[4.5rem] md:h-14 md:w-14",
+									style: {
+										borderColor: isActif ? "var(--color-primary)" : "var(--color-border)",
+										borderWidth: "1px",
+										boxShadow: isPleineLumiere ? "0 0 25px oklch(0.72 0.132 42 / 50%), inset 0 0 10px oklch(0.72 0.132 42 / 20%)" : "none",
+										transform: `translate(-50%, -50%) rotate(45deg) scale(${isPleineLumiere ? 1.1 : 1})`,
+										transition: "all 500ms var(--ressort)"
+									},
+									children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+										className: "h-2 w-2 rounded-full md:h-3 md:w-3",
+										style: {
+											background: isActif ? "var(--color-primary)" : "var(--color-border)",
+											boxShadow: isActif ? "0 0 10px var(--color-primary)" : "none",
+											transition: "all 300ms"
+										}
+									})
+								}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+									className: "relative overflow-hidden rounded-sm border border-border bg-card/60 p-8 md:p-12 transition-all duration-700 backdrop-blur-md",
+									style: {
+										transform: isActif ? "translateX(0) scale(1)" : "translateX(40px) scale(0.96)",
+										opacity: isActif ? 1 : .3,
+										borderColor: isPleineLumiere ? "oklch(0.72 0.132 42 / 40%)" : "var(--color-border)",
+										background: isPleineLumiere ? "linear-gradient(145deg, oklch(0.22 0.014 62 / 80%) 0%, oklch(0.14 0.007 62 / 80%) 100%)" : "oklch(0.18 0.01 62 / 60%)",
+										boxShadow: isPleineLumiere ? "var(--shadow-profond)" : "none"
+									},
+									children: [
+										/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+											"aria-hidden": true,
+											className: "absolute -right-4 -bottom-8 text-[140px] font-black leading-none pointer-events-none transition-all duration-1000",
+											style: {
+												color: "transparent",
+												WebkitTextStroke: isPleineLumiere ? "2px oklch(0.72 0.132 42 / 10%)" : "2px oklch(0.28 0.02 62 / 20%)",
+												transform: isPleineLumiere ? "translateY(0) scale(1.05)" : "translateY(20px) scale(1)"
+											},
+											children: etape.num
+										}),
+										/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+											className: "relative z-10 flex flex-col gap-6 md:flex-row md:items-start md:justify-between",
+											children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+												className: "max-w-xl",
+												children: [
+													/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+														className: "flex items-center gap-4",
+														children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", {
+															className: "mono-plan flex h-8 items-center rounded-sm bg-primary/10 px-3 text-sm !text-primary border border-primary/20",
+															children: ["Étape ", etape.num]
+														})
+													}),
+													/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h3", {
+														className: "texte-grave mt-5 text-[clamp(1.8rem,3.5vw,2.8rem)] font-black uppercase",
+														children: etape.titre
+													}),
+													/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+														className: "mt-4 text-lg text-muted-foreground leading-relaxed",
+														children: etape.desc
+													})
+												]
+											}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+												className: "shrink-0 pt-2",
+												children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+													className: "flex items-center gap-3 rounded-full border border-border bg-background px-5 py-3 transition-colors duration-500",
+													style: {
+														borderColor: isPleineLumiere ? "oklch(0.72 0.132 42 / 30%)" : "var(--color-border)",
+														boxShadow: isPleineLumiere ? "inset 0 0 20px oklch(0.72 0.132 42 / 5%)" : "none"
+													},
+													children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Timer, {
+														className: "h-5 w-5",
+														style: { color: isActif ? "var(--color-primary)" : "var(--color-muted-foreground)" }
+													}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+														className: "mono-plan !text-foreground/90",
+														children: etape.delai
+													})]
+												})
+											})]
+										}),
+										index < ETAPES$1.length - 1 && isPleineLumiere && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+											className: "absolute right-8 bottom-8 animate-pulse text-primary/30 hidden md:block",
+											children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ArrowRight, { className: "h-8 w-8 rotate-90" })
+										})
+									]
+								})]
+							}, index);
+						})
+					})]
+				})
+			]
+		})]
+	});
+}
+var ETAPES = [
+	{
+		icone: FileText,
+		titre: "Devis gratuit",
+		desc: "Diagnostic sans engagement, devis détaillé sous 48h."
+	},
+	{
+		icone: CreditCard,
+		titre: "Paiement flexible",
+		desc: "Paiement échelonné possible. Nous nous adaptons à votre budget."
+	},
+	{
+		icone: CalendarCheck,
+		titre: "Planification",
+		desc: "Calendrier prévisionnel communiqué avant le début du chantier."
+	},
+	{
+		icone: BadgeCheck,
+		titre: "Facturation transparente",
+		desc: "Aucun frais caché. Chaque poste est détaillé et justifié."
+	}
+];
+function Financement() {
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("section", {
+		className: "relative overflow-hidden border-t border-border px-5 py-24 md:px-14 md:py-32",
+		children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+			className: "absolute inset-0 pointer-events-none",
+			style: { background: "radial-gradient(ellipse 60% 50% at 50% 50%, oklch(0.72 0.132 42 / 0.05), transparent 70%)" }
+		}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+			className: "relative mx-auto max-w-6xl",
+			children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+				className: "grid items-center gap-12 lg:grid-cols-[1.2fr_1fr]",
+				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [
+					/* @__PURE__ */ (0, import_jsx_runtime.jsx)(motion.span, {
+						initial: {
+							opacity: 0,
+							y: 10
+						},
+						whileInView: {
+							opacity: 1,
+							y: 0
+						},
+						viewport: { once: true },
+						className: "mono-plan !text-primary",
+						children: "Financement"
+					}),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsxs)(motion.h2, {
+						initial: {
+							opacity: 0,
+							y: 20
+						},
+						whileInView: {
+							opacity: 1,
+							y: 0
+						},
+						viewport: { once: true },
+						transition: {
+							delay: .1,
+							duration: .6
+						},
+						className: "texte-grave mt-2 text-[clamp(2.4rem,5vw,4.4rem)] font-black",
+						children: [
+							"Un projet, ",
+							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("br", {}),
+							"un budget, ",
+							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("br", {}),
+							"une solution"
+						]
+					}),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsx)(motion.p, {
+						initial: {
+							opacity: 0,
+							y: 15
+						},
+						whileInView: {
+							opacity: 1,
+							y: 0
+						},
+						viewport: { once: true },
+						transition: {
+							delay: .2,
+							duration: .5
+						},
+						className: "mt-6 max-w-lg text-muted-foreground",
+						children: "Nous croyons que la qualité doit être accessible. Devis gratuit, paiement échelonné, transparence totale — rien ne doit freiner votre projet."
+					}),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsx)(motion.div, {
+						initial: {
+							opacity: 0,
+							y: 15
+						},
+						whileInView: {
+							opacity: 1,
+							y: 0
+						},
+						viewport: { once: true },
+						transition: {
+							delay: .3,
+							duration: .5
+						},
+						className: "mt-8",
+						children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("a", {
+							href: ENTREPRISE.telephoneLien,
+							className: "mono-plan inline-flex items-center gap-2 rounded-sm bg-primary px-7 py-3.5 !text-primary-foreground transition-all duration-500 hover:scale-105 hover:shadow-[0_0_40px_oklch(0.72_0.132_42/0.3)]",
+							children: ["Demander mon devis gratuit ", /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ArrowRight, { className: "h-4 w-4" })]
+						})
+					})
+				] }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+					className: "space-y-4",
+					children: ETAPES.map((etape, i) => {
+						const Icone = etape.icone;
+						return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(motion.div, {
+							initial: {
+								opacity: 0,
+								x: 30
+							},
+							whileInView: {
+								opacity: 1,
+								x: 0
+							},
+							viewport: { once: true },
+							transition: {
+								delay: i * .12,
+								duration: .4
+							},
+							className: "group flex items-start gap-4 rounded-sm border border-border/40 bg-card/30 p-5 transition-all duration-300 hover:border-primary/30 hover:bg-card/50",
+							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+								className: "flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-primary/20 bg-primary/5 transition-all duration-300 group-hover:bg-primary/10",
+								children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Icone, { className: "h-5 w-5 text-primary" })
+							}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h3", {
+								className: "font-display text-base font-bold text-marbre",
+								children: etape.titre
+							}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+								className: "mt-0.5 text-sm text-muted-foreground",
+								children: etape.desc
+							})] })]
+						}, etape.titre);
+					})
+				})]
+			})
+		})]
+	});
+}
+var chantier_artisan_default = "/assets/chantier-artisan-B9NoOJEn.jpg";
+/** ACTE 5 — Le chantier en direct. Diaphragme : tirage du point. */
+function ActeAtelier() {
+	const [focus, setFocus] = (0, import_react.useState)(50);
+	const f = focus / 100;
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("section", {
+		id: "methode",
+		className: "relative bg-background py-24 md:py-32",
+		"aria-label": "Notre méthode",
+		children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+			className: "mx-auto grid max-w-7xl gap-12 px-5 md:px-14 lg:grid-cols-[1fr_0.9fr] lg:items-center",
+			children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+				className: "relative aspect-[4/3] overflow-hidden rounded-sm border border-border bg-muted",
+				children: [
+					[
+						{
+							src: apres_facade_default,
+							alt: "Plan et devis en arrière-plan du chantier",
+							cible: 0,
+							echelle: 1.12
+						},
+						{
+							src: apres_cuisine_default,
+							alt: "Matériaux et finitions préparés sur le chantier",
+							cible: .5,
+							echelle: 1.06
+						},
+						{
+							src: chantier_artisan_default,
+							alt: "Artisan Seni Djelassi au travail sur un chantier",
+							cible: 1,
+							echelle: 1
+						}
+					].map((p, i) => {
+						const net = 1 - Math.min(1, Math.abs(f - p.cible) * 2.2);
+						return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("img", {
+							src: p.src,
+							alt: p.alt,
+							loading: "lazy",
+							width: 1280,
+							height: 960,
+							className: "absolute inset-0 h-full w-full object-cover",
+							style: {
+								filter: `blur(${(1 - net) * 14}px) brightness(${.45 + net * .65})`,
+								transform: `scale(${p.echelle + (1 - net) * .04})`,
+								opacity: .35 + net * .65,
+								transition: "filter 260ms var(--ressort), opacity 260ms linear"
+							}
+						}, i);
+					}),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+						"aria-hidden": true,
+						className: "pointer-events-none absolute inset-0",
+						style: { background: "radial-gradient(70% 60% at 50% 50%, transparent 35%, oklch(0.09 0.005 62 / 85%) 100%)" }
+					}),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", {
+						className: "mono-plan absolute bottom-4 left-4",
+						children: [
+							"f/",
+							(1.4 + f * 8).toFixed(1),
+							" — tirage du point"
+						]
+					})
+				]
+			}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [
+				/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("h2", {
+					className: "texte-grave mt-6 text-[clamp(2.2rem,5.6vw,4.6rem)] font-black",
+					children: [
+						"Un seul",
+						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("br", {}),
+						"interlocuteur"
+					]
+				}),
+				/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+					className: "mt-6 max-w-xl text-lg text-muted-foreground",
+					children: SLOGANS.interlocuteur
+				}),
+				/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("label", {
+					className: "mono-plan mt-10 block",
+					children: ["Profondeur de champ", /* @__PURE__ */ (0, import_jsx_runtime.jsx)("input", {
+						type: "range",
+						min: 0,
+						max: 100,
+						value: focus,
+						onChange: (e) => setFocus(Number(e.target.value)),
+						className: "mt-3 w-full accent-[oklch(0.72_0.132_42)]"
+					})]
+				}),
+				/* @__PURE__ */ (0, import_jsx_runtime.jsx)("ol", {
+					className: "mt-10 space-y-4 border-t border-border pt-8",
+					children: [
+						[
+							"01",
+							"Conception",
+							"Visite, relevé et devis gratuit détaillé."
+						],
+						[
+							"02",
+							"Réalisation",
+							"Coordination de tous les corps d'état sur le chantier."
+						],
+						[
+							"03",
+							"Réception",
+							"Contrôle des finitions et garanties assurées."
+						]
+					].map(([n, t, d]) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("li", {
+						className: "flex gap-5",
+						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+							className: "mono-plan !text-primary",
+							children: n
+						}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+							className: "block font-display text-2xl uppercase text-marbre",
+							children: t
+						}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+							className: "block text-sm text-muted-foreground",
+							children: d
+						})] })]
+					}, n))
+				})
+			] })]
+		})
+	});
+}
+var maison_nuit_default = "/assets/maison-nuit-Bc23FkCz.jpg";
+/** ACTE 6 — Le Seuil. La porte s'ouvre sur le contact. */
+function ActeSeuil() {
+	const [ouverte, setOuverte] = (0, import_react.useState)(false);
+	const [envoye, setEnvoye] = (0, import_react.useState)(false);
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("section", {
+		id: "devis",
+		className: "relative overflow-hidden py-24 md:py-32",
+		"aria-label": "Contact et devis gratuit",
+		children: [
+			/* @__PURE__ */ (0, import_jsx_runtime.jsx)("img", {
+				src: maison_nuit_default,
+				alt: "Maison rénovée éclairée de nuit",
+				loading: "lazy",
+				width: 1280,
+				height: 960,
+				className: "absolute inset-0 h-full w-full object-cover opacity-25"
+			}),
+			/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+				"aria-hidden": true,
+				className: "absolute inset-0",
+				style: { background: "linear-gradient(180deg, oklch(0.135 0.006 62) 0%, oklch(0.135 0.006 62 / 70%) 40%, oklch(0.135 0.006 62) 100%)" }
+			}),
+			/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+				className: "relative mx-auto max-w-7xl px-5 md:px-14",
+				children: [
+					/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("h2", {
+						className: "texte-grave mt-6 max-w-4xl text-[clamp(2.4rem,7vw,6rem)] font-black",
+						children: [
+							"Poussez",
+							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("br", {}),
+							"la porte"
+						]
+					}),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+						className: "mt-6 max-w-xl text-lg text-muted-foreground",
+						children: SLOGANS.principal
+					}),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+						className: "mt-14 grid gap-10 lg:grid-cols-[0.85fr_1.15fr]",
+						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+							className: "relative min-h-[320px] rounded-sm border border-border bg-card/60 p-6 [perspective:1400px]",
+							onMouseEnter: () => setOuverte(true),
+							onMouseLeave: () => setOuverte(false),
+							onClick: () => setOuverte((o) => !o),
+							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+								className: "absolute inset-6 flex flex-col justify-end gap-2 rounded-sm border border-primary/30 bg-background/70 p-6 pl-16",
+								children: [
+									/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+										className: "mono-plan !text-primary",
+										children: "Entrez"
+									}),
+									/* @__PURE__ */ (0, import_jsx_runtime.jsx)("a", {
+										href: ENTREPRISE.telephoneLien,
+										className: "font-display text-3xl uppercase text-marbre transition-colors hover:text-primary",
+										children: ENTREPRISE.telephone
+									}),
+									/* @__PURE__ */ (0, import_jsx_runtime.jsx)("a", {
+										href: `mailto:${ENTREPRISE.email}`,
+										className: "text-sm text-muted-foreground transition-colors hover:text-primary",
+										children: ENTREPRISE.email
+									}),
+									/* @__PURE__ */ (0, import_jsx_runtime.jsx)("a", {
+										href: ENTREPRISE.whatsapp,
+										target: "_blank",
+										rel: "noopener noreferrer",
+										className: "mono-plan mt-3 w-fit rounded-full bg-primary px-4 py-2 !text-primary-foreground",
+										children: "WhatsApp direct"
+									}),
+									/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+										className: "mono-plan mt-4",
+										children: "Marseille · Toulon · Nice — départements 13, 83, 06"
+									})
+								]
+							}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+								"aria-hidden": true,
+								className: "absolute inset-6 origin-left rounded-sm border border-border transition-transform duration-[1200ms] [transform-style:preserve-3d] [transition-timing-function:var(--ressort)]",
+								style: {
+									transform: `rotateY(${ouverte ? -78 : 0}deg)`,
+									background: "linear-gradient(115deg, oklch(0.3 0.02 62), oklch(0.19 0.012 62) 60%, oklch(0.15 0.008 62))",
+									boxShadow: "var(--shadow-profond)"
+								},
+								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { className: "absolute right-4 top-1/2 h-6 w-6 -translate-y-1/2 rounded-full bg-secondary" }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+									className: "mono-plan absolute bottom-5 left-5",
+									children: "Survolez pour ouvrir"
+								})]
+							})]
+						}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("form", {
+							className: "grid gap-4 rounded-sm border border-border bg-card/70 p-7 backdrop-blur sm:grid-cols-2",
+							onSubmit: (e) => {
+								e.preventDefault();
+								setEnvoye(true);
+							},
+							children: [
+								/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("label", {
+									className: "mono-plan grid gap-2 sm:col-span-1",
+									children: ["Nom", /* @__PURE__ */ (0, import_jsx_runtime.jsx)("input", {
+										required: true,
+										name: "nom",
+										className: "rounded-sm border border-input bg-background/70 px-3 py-3 font-sans text-base normal-case tracking-normal text-foreground outline-none transition-colors focus:border-primary"
+									})]
+								}),
+								/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("label", {
+									className: "mono-plan grid gap-2",
+									children: ["Téléphone", /* @__PURE__ */ (0, import_jsx_runtime.jsx)("input", {
+										required: true,
+										type: "tel",
+										name: "telephone",
+										className: "rounded-sm border border-input bg-background/70 px-3 py-3 font-sans text-base normal-case tracking-normal text-foreground outline-none transition-colors focus:border-primary"
+									})]
+								}),
+								/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("label", {
+									className: "mono-plan grid gap-2",
+									children: ["Ville", /* @__PURE__ */ (0, import_jsx_runtime.jsx)("input", {
+										required: true,
+										name: "ville",
+										placeholder: "Marseille, Toulon, Nice…",
+										className: "rounded-sm border border-input bg-background/70 px-3 py-3 font-sans text-base normal-case tracking-normal text-foreground outline-none transition-colors focus:border-primary"
+									})]
+								}),
+								/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("label", {
+									className: "mono-plan grid gap-2",
+									children: ["Type de travaux", /* @__PURE__ */ (0, import_jsx_runtime.jsx)("select", {
+										name: "travaux",
+										className: "rounded-sm border border-input bg-background/70 px-3 py-3 font-sans text-base normal-case tracking-normal text-foreground outline-none transition-colors focus:border-primary",
+										children: METIERS.map((m) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)("option", {
+											value: m.nom,
+											children: m.nom
+										}, m.id))
+									})]
+								}),
+								/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("label", {
+									className: "mono-plan grid gap-2 sm:col-span-2",
+									children: ["Message", /* @__PURE__ */ (0, import_jsx_runtime.jsx)("textarea", {
+										name: "message",
+										rows: 4,
+										className: "rounded-sm border border-input bg-background/70 px-3 py-3 font-sans text-base normal-case tracking-normal text-foreground outline-none transition-colors focus:border-primary"
+									})]
+								}),
+								/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+									className: "flex flex-wrap items-center gap-4 sm:col-span-2",
+									children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
+										type: "submit",
+										className: "mono-plan rounded-full bg-primary px-7 py-4 !text-[0.72rem] !text-primary-foreground transition-transform duration-500 [transition-timing-function:var(--ressort)] hover:scale-[1.03] active:scale-95",
+										style: { boxShadow: "var(--lueur-cuivre)" },
+										children: "Demander mon devis gratuit"
+									}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("a", {
+										href: ENTREPRISE.telephoneLien,
+										className: "mono-plan hover:!text-primary",
+										children: ["ou appelez le ", ENTREPRISE.telephone]
+									})]
+								}),
+								envoye && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("p", {
+									role: "status",
+									className: "mono-plan sm:col-span-2 !text-primary",
+									children: [
+										"Merci — votre demande est prête. Appelez ou écrivez-nous à ",
+										ENTREPRISE.email,
+										" pour accélérer la prise de rendez-vous."
+									]
+								})
+							]
+						})]
+					})
+				]
+			})
+		]
+	});
+}
+function Index() {
+	useLenis();
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("main", {
+		className: "relative bg-background",
+		children: [
+			/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Navbar, {}),
+			/* @__PURE__ */ (0, import_jsx_runtime.jsx)(CurseurLumiere, {}),
+			/* @__PURE__ */ (0, import_jsx_runtime.jsx)(CoucheConversion, {}),
+			/* @__PURE__ */ (0, import_jsx_runtime.jsx)(ActeCarriere, {}),
+			/* @__PURE__ */ (0, import_jsx_runtime.jsx)(LiensSociauxFlottants, {}),
+			/* @__PURE__ */ (0, import_jsx_runtime.jsx)(ActeFondation, {}),
+			/* @__PURE__ */ (0, import_jsx_runtime.jsx)(PourquoiNous, {}),
+			/* @__PURE__ */ (0, import_jsx_runtime.jsx)(ActeExplorateur, {}),
+			/* @__PURE__ */ (0, import_jsx_runtime.jsx)(ActeChantiers, {}),
+			/* @__PURE__ */ (0, import_jsx_runtime.jsx)(ActeProcessus, {}),
+			/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Financement, {}),
+			/* @__PURE__ */ (0, import_jsx_runtime.jsx)(ActeAtelier, {}),
+			/* @__PURE__ */ (0, import_jsx_runtime.jsx)(TemoignagesClients, {}),
+			/* @__PURE__ */ (0, import_jsx_runtime.jsx)(AvisGoogle, {}),
+			/* @__PURE__ */ (0, import_jsx_runtime.jsx)(ActeSeuil, {}),
+			/* @__PURE__ */ (0, import_jsx_runtime.jsx)(PiedDePage, {})
+		]
+	});
+}
+//#endregion
+export { Index as component };
