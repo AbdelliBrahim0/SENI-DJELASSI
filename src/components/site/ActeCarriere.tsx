@@ -76,7 +76,7 @@ export function ActeCarriere() {
           opacity: Math.max(0, 1 - p * 1.6),
           visibility: p > 0.98 ? "hidden" : "visible",
           background:
-            "radial-gradient(60% 50% at 50% 45%, oklch(0.28 0.02 55) 0%, oklch(0.135 0.006 62) 70%)",
+            "radial-gradient(60% 50% at 50% 45%, color-mix(in oklch, var(--color-primary) 20%, var(--color-background)) 0%, var(--color-background) 70%)",
         }}
       />
 

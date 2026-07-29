@@ -42,7 +42,7 @@ export function ActeFondation() {
           style={{
             height: `${20 + p * 90}%`,
             background:
-              "linear-gradient(180deg, oklch(0.24 0.012 62) 0%, oklch(0.17 0.008 62) 45%, oklch(0.13 0.006 62) 100%)",
+              "linear-gradient(180deg, color-mix(in oklch, var(--color-primary) 8%, var(--color-background)) 0%, var(--color-background) 45%, var(--color-background) 100%)",
             filter: "blur(0.2px)",
             transition: "height 120ms linear",
           }}

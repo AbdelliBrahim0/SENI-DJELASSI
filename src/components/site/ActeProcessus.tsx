@@ -98,7 +98,7 @@ export function ActeProcessus() {
               className="absolute top-0 left-1/2 w-[3px] -translate-x-1/2 bg-primary" 
               style={{ 
                 height: `${progress * 100}%`,
-                boxShadow: "0 0 20px 2px oklch(0.72 0.132 42 / 80%)",
+                boxShadow: "0 0 20px 2px color-mix(in oklch, var(--color-primary) 80%, transparent)",
                 transition: "height 200ms ease-out"
               }} 
             />
@@ -121,7 +121,7 @@ export function ActeProcessus() {
                     style={{
                       borderColor: isActif ? "var(--color-primary)" : "var(--color-border)",
                       borderWidth: "1px",
-                      boxShadow: isPleineLumiere ? "0 0 25px oklch(0.72 0.132 42 / 50%), inset 0 0 10px oklch(0.72 0.132 42 / 20%)" : "none",
+                      boxShadow: isPleineLumiere ? "0 0 25px color-mix(in oklch, var(--color-primary) 50%, transparent), inset 0 0 10px color-mix(in oklch, var(--color-primary) 20%, transparent)" : "none",
                       transform: `translate(-50%, -50%) rotate(45deg) scale(${isPleineLumiere ? 1.1 : 1})`,
                       transition: "all 500ms var(--ressort)",
                     }}
@@ -142,10 +142,10 @@ export function ActeProcessus() {
                     style={{
                       transform: isActif ? "translateX(0) scale(1)" : "translateX(40px) scale(0.96)",
                       opacity: isActif ? 1 : 0.3,
-                      borderColor: isPleineLumiere ? "oklch(0.72 0.132 42 / 40%)" : "var(--color-border)",
+                      borderColor: isPleineLumiere ? "color-mix(in oklch, var(--color-primary) 40%, transparent)" : "var(--color-border)",
                       background: isPleineLumiere 
-                        ? "linear-gradient(145deg, oklch(0.22 0.014 62 / 80%) 0%, oklch(0.14 0.007 62 / 80%) 100%)" 
-                        : "oklch(0.18 0.01 62 / 60%)",
+                        ? "linear-gradient(145deg, color-mix(in oklch, var(--card) 80%, var(--primary) 12%) 0%, var(--card) 100%)" 
+                        : "color-mix(in oklch, var(--card) 60%, transparent)",
                       boxShadow: isPleineLumiere ? "var(--shadow-profond)" : "none",
                     }}
                   >
@@ -155,7 +155,7 @@ export function ActeProcessus() {
                       className="absolute -right-4 -bottom-8 text-[140px] font-black leading-none pointer-events-none transition-all duration-1000"
                       style={{
                         color: "transparent",
-                        WebkitTextStroke: isPleineLumiere ? "2px oklch(0.72 0.132 42 / 10%)" : "2px oklch(0.28 0.02 62 / 20%)",
+                        WebkitTextStroke: isPleineLumiere ? "2px color-mix(in oklch, var(--color-primary) 10%, transparent)" : "2px color-mix(in oklch, var(--color-foreground) 15%, transparent)",
                         transform: isPleineLumiere ? "translateY(0) scale(1.05)" : "translateY(20px) scale(1)",
                       }}
                     >
@@ -182,8 +182,8 @@ export function ActeProcessus() {
                         <div 
                           className="flex items-center gap-3 rounded-full border border-border bg-background px-5 py-3 transition-colors duration-500"
                           style={{ 
-                            borderColor: isPleineLumiere ? "oklch(0.72 0.132 42 / 30%)" : "var(--color-border)",
-                            boxShadow: isPleineLumiere ? "inset 0 0 20px oklch(0.72 0.132 42 / 5%)" : "none"
+                            borderColor: isPleineLumiere ? "color-mix(in oklch, var(--color-primary) 30%, transparent)" : "var(--color-border)",
+                            boxShadow: isPleineLumiere ? "inset 0 0 20px color-mix(in oklch, var(--color-primary) 5%, transparent)" : "none"
                           }}
                         >
                           <Timer className="h-5 w-5" style={{ color: isActif ? "var(--color-primary)" : "var(--color-muted-foreground)" }} />

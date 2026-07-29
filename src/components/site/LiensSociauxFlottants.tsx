@@ -74,20 +74,20 @@ export function LiensSociauxFlottants() {
               }}
             >
               <span
-                className="flex h-16 w-16 items-center justify-center rounded-full border border-white/15 bg-white/5 backdrop-blur-md transition-all duration-500 hover:scale-110 hover:border-white/30 md:h-20 md:w-20 overflow-hidden"
+                className="flex h-16 w-16 items-center justify-center rounded-full border border-border bg-card/60 backdrop-blur-md transition-all duration-500 hover:scale-110 hover:border-primary/40 md:h-20 md:w-20 overflow-hidden"
                 onMouseEnter={(e) => {
                   e.currentTarget.style.boxShadow = `0 0 30px ${lien.couleur}40, 0 0 60px ${lien.couleur}20`;
                   e.currentTarget.style.borderColor = `${lien.couleur}40`;
                 }}
                 onMouseLeave={(e) => {
                   e.currentTarget.style.boxShadow = "none";
-                  e.currentTarget.style.borderColor = "oklch(1 0 0 / 0.15)";
+                  e.currentTarget.style.borderColor = "var(--color-border)";
                 }}
               >
                 <img src={lien.src} alt={lien.nom} className="h-7 w-7 md:h-9 md:w-9 object-contain" />
               </span>
               <span
-                className="mono-plan mt-2.5 text-[0.55rem] text-white/40 transition-all duration-300 group-hover:text-white/80 md:text-[0.6rem]"
+                className="mono-plan mt-2.5 text-[0.55rem] text-muted-foreground/60 transition-all duration-300 group-hover:text-muted-foreground md:text-[0.6rem]"
                 style={{
                   opacity: Math.min(1, opacite * 2),
                   transform: `translateY(${(1 - Math.min(1, opacite * 2)) * 6}px)`,

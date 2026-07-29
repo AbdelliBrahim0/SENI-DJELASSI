@@ -120,7 +120,7 @@ export function Navbar() {
           aria-hidden
           className="absolute inset-0 opacity-20 pointer-events-none"
           style={{
-            background: "radial-gradient(circle at 50% 50%, oklch(0.72 0.132 42) 0%, transparent 70%)"
+            background: "radial-gradient(circle at 50% 50%, color-mix(in oklch, var(--color-primary) 60%, transparent) 0%, transparent 70%)"
           }}
         />
 
@@ -152,7 +152,8 @@ export function Navbar() {
             <Link
               to="/demande-devis"
               onClick={() => setOuvert(false)}
-              className="mono-plan flex w-full items-center justify-center rounded-sm bg-primary px-6 py-4 text-base !text-primary-foreground shadow-[0_0_20px_oklch(0.72_0.132_42/0.4)]"
+              className="mono-plan flex w-full items-center justify-center rounded-sm bg-primary px-6 py-4 text-base !text-primary-foreground"
+              style={{ boxShadow: "0 0 20px color-mix(in oklch, var(--color-primary) 40%, transparent)" }}
             >
               Demander un devis
             </Link>

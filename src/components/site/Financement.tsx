@@ -15,7 +15,7 @@ export function Financement() {
       <div
         className="absolute inset-0 pointer-events-none"
         style={{
-          background: "radial-gradient(ellipse 60% 50% at 50% 50%, oklch(0.72 0.132 42 / 0.05), transparent 70%)",
+          background: "radial-gradient(ellipse 60% 50% at 50% 50%, color-mix(in oklch, var(--color-primary) 5%, transparent), transparent 70%)",
         }}
       />
       <div className="relative mx-auto max-w-6xl">
@@ -58,7 +58,7 @@ export function Financement() {
             >
               <a
                 href={ENTREPRISE.telephoneLien}
-                className="mono-plan inline-flex items-center gap-2 rounded-sm bg-primary px-7 py-3.5 !text-primary-foreground transition-all duration-500 hover:scale-105 hover:shadow-[0_0_40px_oklch(0.72_0.132_42/0.3)]"
+                className="mono-plan inline-flex items-center gap-2 rounded-sm bg-primary px-7 py-3.5 !text-primary-foreground transition-all duration-500 hover:scale-105"
               >
                 Demander mon devis gratuit <ArrowRight className="h-4 w-4" />
               </a>

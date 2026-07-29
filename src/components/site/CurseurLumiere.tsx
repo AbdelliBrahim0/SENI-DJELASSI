@@ -45,7 +45,7 @@ export function CurseurLumiere() {
         className="absolute left-0 top-0 h-[440px] w-[440px] rounded-full opacity-70 mix-blend-screen"
         style={{
           background:
-            "radial-gradient(circle, oklch(0.72 0.132 42 / 22%) 0%, oklch(0.72 0.132 42 / 8%) 35%, transparent 68%)",
+            "radial-gradient(circle, color-mix(in oklch, var(--color-primary) 22%, transparent) 0%, color-mix(in oklch, var(--color-primary) 8%, transparent) 35%, transparent 68%)",
         }}
       />
       <div

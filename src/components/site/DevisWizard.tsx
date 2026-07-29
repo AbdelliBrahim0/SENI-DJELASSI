@@ -172,7 +172,7 @@ export function DevisWizard() {
                 return (
                   <button key={m.id} onClick={() => { setMetierId(m.id); setReponses({}); }}
                     className={`group relative rounded-sm border p-5 text-left transition-all duration-300 ${
-                      actif ? "border-primary bg-primary/5 shadow-[0_0_20px_oklch(0.72_0.132_42/0.1)]" : "border-border bg-card/30 hover:border-primary/30 hover:bg-card/50"
+                      actif ? "border-primary bg-primary/5" : "border-border bg-card/30 hover:border-primary/30 hover:bg-card/50"
                     }`}
                   >
                     <span className={`mono-plan text-[0.55rem] ${actif ? "!text-primary" : "text-muted-foreground"}`}>
@@ -300,7 +300,7 @@ export function DevisWizard() {
                 <p className="mono-plan mb-4 text-xs">Choisissez votre moyen d'envoi</p>
                 <div className="flex flex-wrap gap-3">
                   <a href={lienWhatsApp} target="_blank" rel="noopener noreferrer" onClick={() => setEnvoye(true)}
-                    className="mono-plan flex flex-1 items-center justify-center gap-2 rounded-sm border border-primary/30 bg-primary/5 px-6 py-4 text-sm transition-all duration-300 hover:bg-primary/10 hover:shadow-[0_0_30px_oklch(0.72_0.132_42/0.15)]"
+                    className="mono-plan flex flex-1 items-center justify-center gap-2 rounded-sm border border-primary/30 bg-primary/5 px-6 py-4 text-sm transition-all duration-300 hover:bg-primary/10"
                   >
                     <MessageCircle className="h-5 w-5 text-primary" /> WhatsApp
                   </a>

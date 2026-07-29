@@ -56,7 +56,7 @@ export function PourquoiNous() {
     <section ref={ref} className="relative overflow-hidden border-t border-border px-5 py-24 md:px-14 md:py-32">
       <div className="absolute inset-0 pointer-events-none"
         style={{
-          background: "radial-gradient(ellipse 60% 40% at 50% 30%, oklch(0.72 0.132 42 / 0.04), transparent 70%)",
+          background: "radial-gradient(ellipse 60% 40% at 50% 30%, color-mix(in oklch, var(--color-primary) 4%, transparent), transparent 70%)",
         }}
       />
       <div className="mx-auto max-w-6xl">
