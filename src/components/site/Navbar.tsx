@@ -1,6 +1,7 @@
 ﻿import { useState, useEffect } from "react";
 import { Link } from "@tanstack/react-router";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Sun, Moon } from "lucide-react";
+import { useTheme } from "@/hooks/use-theme";
 
 const LIENS = [
   { nom: "Accueil", to: "/" },
@@ -10,6 +11,7 @@ const LIENS = [
 ];
 
 export function Navbar() {
+  const { theme, toggleTheme } = useTheme();
   const [ouvert, setOuvert] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
@@ -48,7 +50,7 @@ export function Navbar() {
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center gap-8">
+          <nav className="hidden md:flex items-center gap-6">
             <ul className="flex items-center gap-8">
               {LIENS.map((lien) => (
                 <li key={lien.nom}>
@@ -62,6 +64,17 @@ export function Navbar() {
                 </li>
               ))}
             </ul>
+            <button
+              onClick={toggleTheme}
+              className="flex items-center justify-center w-10 h-10 rounded-full border border-border bg-background/50 backdrop-blur transition-colors hover:border-primary hover:text-primary"
+              aria-label="Basculer le thème"
+            >
+              {theme === "dark" ? (
+                <Sun className="h-4 w-4 text-muted-foreground hover:text-primary transition-colors" />
+              ) : (
+                <Moon className="h-4 w-4 text-muted-foreground hover:text-primary transition-colors" />
+              )}
+            </button>
             <Link
               to="/demande-devis"
               className="mono-plan rounded-sm bg-primary px-5 py-2.5 text-sm !text-primary-foreground transition-transform hover:scale-105"
@@ -70,18 +83,31 @@ export function Navbar() {
             </Link>
           </nav>
 
-          {/* Mobile Menu Button */}
-          <button
-            className="md:hidden relative z-50 flex h-12 w-12 items-center justify-center rounded-full border border-border bg-background/50 backdrop-blur transition-colors hover:border-primary"
-            onClick={() => setOuvert(!ouvert)}
-            aria-label={ouvert ? "Fermer le menu" : "Ouvrir le menu"}
-          >
-            {ouvert ? (
-              <X className="h-5 w-5 text-marbre" />
-            ) : (
-              <Menu className="h-5 w-5 text-marbre" />
-            )}
-          </button>
+          {/* Mobile right group */}
+          <div className="md:hidden flex items-center gap-2">
+            <button
+              onClick={toggleTheme}
+              className="relative z-50 flex h-12 w-12 items-center justify-center rounded-full border border-border bg-background/50 backdrop-blur transition-colors hover:border-primary"
+              aria-label="Basculer le thème"
+            >
+              {theme === "dark" ? (
+                <Sun className="h-5 w-5 text-marbre hover:text-primary transition-colors" />
+              ) : (
+                <Moon className="h-5 w-5 text-marbre hover:text-primary transition-colors" />
+              )}
+            </button>
+            <button
+              className="relative z-50 flex h-12 w-12 items-center justify-center rounded-full border border-border bg-background/50 backdrop-blur transition-colors hover:border-primary"
+              onClick={() => setOuvert(!ouvert)}
+              aria-label={ouvert ? "Fermer le menu" : "Ouvrir le menu"}
+            >
+              {ouvert ? (
+                <X className="h-5 w-5 text-marbre" />
+              ) : (
+                <Menu className="h-5 w-5 text-marbre" />
+              )}
+            </button>
+          </div>
         </div>
       </header>
 
