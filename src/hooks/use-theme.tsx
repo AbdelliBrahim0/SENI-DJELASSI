@@ -32,7 +32,6 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
     if (!mounted) return;
     const root = document.documentElement;
     root.classList.toggle("light", theme === "light");
-    root.classList.toggle("dark", theme === "dark");
     localStorage.setItem("theme", theme);
   }, [theme, mounted]);
 
